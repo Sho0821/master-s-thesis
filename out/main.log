@@ -1,4 +1,4 @@
-This is e-upTeX, Version 3.141592653-p4.1.2-u2.00-250202-2.6 (utf8.sjis) (TeX Live 2025) (preloaded format=platex 2025.12.2)  4 DEC 2025 12:16
+This is e-upTeX, Version 3.141592653-p4.1.2-u2.00-250202-2.6 (utf8.sjis) (TeX Live 2025) (preloaded format=platex 2025.12.2)  5 DEC 2025 15:59
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -62,9 +62,9 @@ Package: trig 2023/12/02 v1.11 sin cos tan (DPC)
 ) (c:/texlive/2025/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
 File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 )
-Package graphics Info: Driver file: dvips.def on input line 106.
-(c:/texlive/2025/texmf-dist/tex/latex/graphics-def/dvips.def
-File: dvips.def 2025/01/21 v3.2a Graphics/color driver for dvips
+Package graphics Info: Driver file: dvipdfmx.def on input line 106.
+(c:/texlive/2025/texmf-dist/tex/latex/graphics-def/dvipdfmx.def
+File: dvipdfmx.def 2025/09/29 v5.0n Graphics/color driver for dvipdfmx
 ))
 \Gin@req@height=\dimen170
 \Gin@req@width=\dimen171
@@ -267,18 +267,14 @@ Package hyperref Info: PDF/A mode OFF on input line 6108.
 \c@Item=\count318
 \c@Hfootnote=\count319
 )
-Package hyperref Info: Driver (default): hdvips.
-(c:/texlive/2025/texmf-dist/tex/latex/hyperref/hdvips.def
-File: hdvips.def 2025-07-12 v7.01o Hyperref driver for dvips
-(c:/texlive/2025/texmf-dist/tex/latex/hyperref/pdfmark.def
-File: pdfmark.def 2025-07-12 v7.01o Hyperref definitions for pdfmark specials
-\pdf@docset=\toks25
-\pdf@box=\box83
-\pdf@toks=\toks26
-\pdf@defaulttoks=\toks27
-\HyField@AnnotCount=\count320
-\Fld@listcount=\count321
-\c@bookmark@seq@number=\count322
+Package hyperref Info: Driver: hdvipdfm.
+(c:/texlive/2025/texmf-dist/tex/latex/hyperref/hdvipdfm.def
+File: hdvipdfm.def 2025-07-12 v7.01o Hyperref driver for dvipdfm
+\pdfm@box=\box83
+\c@Hy@AnnotLevel=\count320
+\HyField@AnnotCount=\count321
+\Fld@listcount=\count322
+\c@bookmark@seq@number=\count323
 (c:/texlive/2025/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty
 Package: rerunfilecheck 2025-06-21 v1.11 Rerun checks for auxiliary files (HO)
 (c:/texlive/2025/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty
@@ -287,86 +283,86 @@ Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
 Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 284.
 )
 \Hy@SectionHShift=\skip57
-)) (c:/texlive/2025/texmf-dist/tex/latex/setspace/setspace.sty
+)
+Package hyperref Info: Option `colorlinks' set `false' on input line 15.
+(c:/texlive/2025/texmf-dist/tex/latex/setspace/setspace.sty
 Package: setspace 2022/12/04 v6.7b set line spacing
 )
-Package translations Info: No language package found. I am going to use `english' as default language. on input line 29.
+Package translations Info: No language package found. I am going to use `english' as default language. on input line 23.
 (c:/texlive/2025/texmf-dist/tex/latex/graphics/color.sty
 Package: color 2025/01/14 v1.3e Standard LaTeX Color (DPC)
 (c:/texlive/2025/texmf-dist/tex/latex/graphics-cfg/color.cfg
 File: color.cfg 2016/01/02 v1.6 sample color configuration
 )
-Package color Info: Driver file: dvips.def on input line 149.
+Package color Info: Driver file: dvipdfmx.def on input line 149.
 (c:/texlive/2025/texmf-dist/tex/latex/graphics/dvipsnam.def
 File: dvipsnam.def 2016/06/17 v3.0m Driver-dependent file (DPC,SPQR)
-) (c:/texlive/2025/texmf-dist/tex/latex/graphics/mathcolor.ltx)) (c:/texlive/2025/texmf-dist/tex/latex/l3backend/l3backend-dvips.def
-File: l3backend-dvips.def 2025-10-09 L3 backend support: dvips
-\l__pdfannot_backend_content_box=\box84
-\l__pdfannot_backend_model_box=\box85
-\g__pdfannot_backend_int=\count323
-\g__pdfannot_backend_link_int=\count324
-\g__pdfannot_backend_link_sf_int=\count325
-) (out/main.aux (out/chapters/intro.aux) (out/chapters/tech.aux) (out/chapters/method1.aux) (out/chapters/method2.aux) (out/chapters/conclusion.aux) (out/chapters/references.aux) (out/chapters/acknowledgement.aux))
+) (c:/texlive/2025/texmf-dist/tex/latex/graphics/mathcolor.ltx)) (c:/texlive/2025/texmf-dist/tex/latex/l3backend/l3backend-dvipdfmx.def
+File: l3backend-dvipdfmx.def 2025-10-09 L3 backend support: dvipdfmx
+\g__graphics_track_int=\count324
+\g__pdfannot_backend_int=\count325
+\g__pdfannot_backend_link_int=\count326
+) (out/main.aux (out/chapters/intro.aux) (out/chapters/tech.aux) (out/chapters/super_resolution.aux) (out/chapters/mutual_conversion.aux) (out/chapters/conclusion.aux) (out/chapters/references.aux) (out/chapters/acknowledgement.aux))
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 29.
-LaTeX Font Info:    ... okay on input line 29.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 29.
-LaTeX Font Info:    ... okay on input line 29.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 29.
-LaTeX Font Info:    ... okay on input line 29.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 29.
-LaTeX Font Info:    ... okay on input line 29.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 29.
-LaTeX Font Info:    ... okay on input line 29.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 29.
-LaTeX Font Info:    ... okay on input line 29.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 29.
-LaTeX Font Info:    ... okay on input line 29.
-LaTeX Font Info:    Checking defaults for JY1/mc/m/n on input line 29.
-LaTeX Font Info:    ... okay on input line 29.
-LaTeX Font Info:    Checking defaults for JT1/mc/m/n on input line 29.
-LaTeX Font Info:    ... okay on input line 29.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 29.
-LaTeX Font Info:    ... okay on input line 29.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 29.
-LaTeX Font Info:    ... okay on input line 29.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for JY1/mc/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for JT1/mc/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
 (c:/texlive/2025/texmf-dist/tex/latex/translations/translations-basic-dictionary-english.trsl
 File: translations-basic-dictionary-english.trsl (english translation file `translations-basic-dictionary')
 )
-Package translations Info: loading dictionary `translations-basic-dictionary' for `english'. on input line 29.
-Package hyperref Info: Link coloring OFF on input line 29.
+Package translations Info: loading dictionary `translations-basic-dictionary' for `english'. on input line 23.
+Package hyperref Info: Link coloring OFF on input line 23.
 (out/main.out) (out/main.out)
 \@outlinefile=\write3
 \openout3 = `main.out'.
 
 LaTeX Font Info:    Font shape `JT1/mc/m/n' will be
-(Font)              scaled to size 13.83836pt on input line 39.
+(Font)              scaled to size 13.83836pt on input line 32.
 LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
-(Font)              scaled to size 13.83836pt on input line 39.
+(Font)              scaled to size 13.83836pt on input line 32.
 LaTeX Font Info:    Font shape `JT1/mc/m/n' will be
-(Font)              scaled to size 16.60605pt on input line 42.
+(Font)              scaled to size 16.60605pt on input line 34.
 LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
-(Font)              scaled to size 16.60605pt on input line 42.
+(Font)              scaled to size 16.60605pt on input line 34.
 LaTeX Font Info:    Font shape `JT1/mc/m/n' will be
-(Font)              scaled to size 11.53198pt on input line 53.
+(Font)              scaled to size 11.53198pt on input line 41.
 LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
-(Font)              scaled to size 11.53198pt on input line 53.
+(Font)              scaled to size 11.53198pt on input line 41.
 [1
 
 ]
 LaTeX Font Info:    Font shape `JT1/gt/m/n' will be
-(Font)              scaled to size 9.60999pt on input line 63.
+(Font)              scaled to size 9.60999pt on input line 50.
 LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
-(Font)              scaled to size 9.60999pt on input line 63.
+(Font)              scaled to size 9.60999pt on input line 50.
 LaTeX Font Info:    Font shape `JT1/mc/m/n' will be
-(Font)              scaled to size 23.90964pt on input line 63.
+(Font)              scaled to size 23.90964pt on input line 50.
 LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
-(Font)              scaled to size 23.90964pt on input line 63.
+(Font)              scaled to size 23.90964pt on input line 50.
 LaTeX Font Info:    Font shape `JT1/gt/m/n' will be
-(Font)              scaled to size 23.90964pt on input line 63.
+(Font)              scaled to size 23.90964pt on input line 50.
 LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
-(Font)              scaled to size 23.90964pt on input line 63.
+(Font)              scaled to size 23.90964pt on input line 50.
 (out/main.toc
 LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
 (Font)              scaled to size 6.72699pt on input line 2.
@@ -379,13 +375,13 @@ File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 LaTeX Font Info:    Trying to load font information for U+msb on input line 2.
 (c:/texlive/2025/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-))
+) [1
+
+])
 \tf@toc=\write4
 \openout4 = `main.toc'.
 
-[1
-
-]
+[2]
 \openout2 = `chapters/intro.aux'.
 
 (./chapters/intro.tex
@@ -399,50 +395,61 @@ LaTeX Font Info:    Font shape `JT1/gt/m/n' will be
 LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
 (Font)              scaled to size 19.9311pt on input line 1.
 LaTeX Font Info:    Font shape `JT1/gt/m/n' will be
-(Font)              scaled to size 13.83836pt on input line 2.
+(Font)              scaled to size 13.83836pt on input line 3.
 LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
-(Font)              scaled to size 13.83836pt on input line 2.
-LaTeX Font Info:    Font shape `JT1/mc/bx/n' in size <10> not available
-(Font)              Font shape `JT1/gt/m/n' tried instead on input line 7.
-LaTeX Font Info:    Font shape `JT1/gt/m/n' will be
-(Font)              scaled to size 9.60999pt on input line 7.
-LaTeX Font Info:    Font shape `JY1/mc/bx/n' in size <10> not available
-(Font)              Font shape `JY1/gt/m/n' tried instead on input line 7.
-LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
-(Font)              scaled to size 9.60999pt on input line 7.
-
-LaTeX Warning: Citation `toyota_cleopr_2024' on page 1 undefined on input line 7.
-
+(Font)              scaled to size 13.83836pt on input line 3.
+File: figures/fig_mesh_comparison.png Graphic file (type bmp)
+<figures/fig_mesh_comparison.png>
 LaTeX Font Info:    Font shape `JT1/mc/m/n' will be
-(Font)              scaled to size 6.72699pt on input line 9.
-LaTeX Font Info:    Font shape `JT1/mc/m/n' will be
-(Font)              scaled to size 4.805pt on input line 9.
+(Font)              scaled to size 8.64899pt on input line 13.
+LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
+(Font)              scaled to size 8.64899pt on input line 13.
 [1
 
 
 
-] [2]) [3]
+] [2]
+LaTeX Font Info:    Font shape `JT1/gt/m/n' will be
+(Font)              scaled to size 11.53198pt on input line 38.
+LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
+(Font)              scaled to size 11.53198pt on input line 38.
+File: figures/fig_field_vs_intensity.png Graphic file (type bmp)
+<figures/fig_field_vs_intensity.png>
+[3]
+LaTeX Font Info:    Font shape `JT1/mc/bx/n' in size <10> not available
+(Font)              Font shape `JT1/gt/m/n' tried instead on input line 61.
+LaTeX Font Info:    Font shape `JT1/gt/m/n' will be
+(Font)              scaled to size 9.60999pt on input line 61.
+LaTeX Font Info:    Font shape `JY1/mc/bx/n' in size <10> not available
+(Font)              Font shape `JY1/gt/m/n' tried instead on input line 61.
+LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
+(Font)              scaled to size 9.60999pt on input line 61.
+) [4]
 \openout2 = `chapters/tech.aux'.
 
 (./chapters/tech.tex
 第2章
-) [4
+) [5
 
 
 
 
 ]
-\openout2 = `chapters/method1.aux'.
+\openout2 = `chapters/super_resolution.aux'.
 
-No file chapters/method1.tex.
-\openout2 = `chapters/method2.aux'.
-
-(./chapters/method2.tex
+(./chapters/super_resolution.tex
 第3章
-) [5
+) [6
 
 
 
+
+]
+\openout2 = `chapters/mutual_conversion.aux'.
+
+(./chapters/mutual_conversion.tex
+第4章
+) [7
 
 
 
@@ -451,8 +458,8 @@ No file chapters/method1.tex.
 \openout2 = `chapters/conclusion.aux'.
 
 (./chapters/conclusion.tex
-第4章
-) [6
+第5章
+) [8
 
 
 
@@ -463,7 +470,7 @@ No file chapters/method1.tex.
 No file chapters/references.tex.
 \openout2 = `chapters/acknowledgement.aux'.
 
-(./chapters/acknowledgement.tex) [7
+(./chapters/acknowledgement.tex) [9
 
 
 
@@ -471,25 +478,22 @@ No file chapters/references.tex.
 
 
 
-] (out/main.aux (out/chapters/intro.aux) (out/chapters/tech.aux) (out/chapters/method1.aux) (out/chapters/method2.aux) (out/chapters/conclusion.aux) (out/chapters/references.aux) (out/chapters/acknowledgement.aux))
+] (out/main.aux (out/chapters/intro.aux) (out/chapters/tech.aux) (out/chapters/super_resolution.aux) (out/chapters/mutual_conversion.aux) (out/chapters/conclusion.aux) (out/chapters/references.aux) (out/chapters/acknowledgement.aux))
  ***********
 pLaTeX2e <2023-02-14>+1, based on
 LaTeX2e <2025-11-01>
 L3 programming layer <2025-11-14>
  ***********
-
-LaTeX Warning: There were undefined references.
-
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 242862CEC0DF72AA3888BED1EB55303E;1306.
+(rerunfilecheck)             Checksum: 177F1FE49BA99394048868457F6914EA;1780.
  ) 
 Here is how much of TeX's memory you used:
- 13803 strings out of 468182
- 272664 string characters out of 5438211
- 656073 words of memory out of 5000000
- 42542 multiletter control sequences out of 15000+600000
- 640268 words of font info for 102 fonts, out of 8000000 for 9000
+ 13756 strings out of 468182
+ 272682 string characters out of 5438211
+ 651656 words of memory out of 5000000
+ 42489 multiletter control sequences out of 15000+600000
+ 641058 words of font info for 106 fonts, out of 8000000 for 9000
  934 hyphenation exceptions out of 8191
- 73i,5n,80p,600b,1112s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 73i,6n,80p,603b,1129s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on out/main.dvi (9 pages, 26772 bytes).
+Output written on out/main.dvi (12 pages, 27148 bytes).

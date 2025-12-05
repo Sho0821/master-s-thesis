@@ -1,59 +1,46 @@
 % main.tex
-\documentclass[12pt,oneside]{jsreport}
+\documentclass[dvipdfmx,11pt,oneside]{jsreport}
 
 % =========================
 %  パッケージ設定
 % =========================
-\usepackage{graphicx}
+\usepackage[dvipdfmx]{graphicx}
 \usepackage{amsmath,amssymb}
 \usepackage{siunitx}
 \usepackage{url}
-\usepackage{hyperref}
+\usepackage[dvipdfmx]{hyperref}
+\hypersetup{
+  colorlinks=false,     
+  pdfborder={0 0 0},     
+}
 \usepackage{setspace}
 
 \onehalfspacing
-
-% =========================
-%  表紙情報
-% =========================
-\newcommand{\ThesisTitle}{（修士論文タイトル）}
-\newcommand{\StudentName}{豊田 将大}
-\newcommand{\University}{公立千歳科学技術大学}
-\newcommand{\GraduateSchool}{大学院 理工学研究科}
-\newcommand{\Laboratory}{福田研究室}
-\newcommand{\SubmittedDate}{2025年2月}
 
 % =========================
 %  本文
 % =========================
 \begin{document}
 
-% ===== 表紙（1ページにまとめる） =====
-\thispagestyle{empty}  % ページ番号を消す
+% ===== 表紙 =====
+\thispagestyle{empty}  
 
 \begin{center}
-  % 上の余白（調整してOK）
+
   \vspace*{25mm}
 
-  % 年度
   {\Large 令和7年度}\\[12mm]
 
-  % 修士論文（字間を少し空ける）
   {\LARGE 修　士　論　文}\\[25mm]
 
-  % 論文題目（○を必要なだけ並べる：1〜2行分）
   {\Large 〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇}\\[4mm]
   {\Large 〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇}\\[35mm]
 
-  % （必要ならここに指導教員名などを追加してもよい）
-
-  % 大学名・研究科名（ページのやや下）
   \vspace{10mm}
 
   {\large 公立千歳科学技術大学大学院理工学研究科}\\[20mm]
 
-  % 氏名（○○○のところに名前を書く想定）
-  {\Large 〇〇〇〇}
+  {\Large 豊田将大}
 \end{center}
 
 \newpage
@@ -68,8 +55,8 @@
 
 \include{chapters/intro}
 \include{chapters/tech}
-\include{chapters/method1}
-\include{chapters/method2}
+\include{chapters/super_resolution}
+\include{chapters/mutual_conversion}
 \include{chapters/conclusion}
 
 % -------- 参考文献 --------
