@@ -1,4 +1,4 @@
-This is e-upTeX, Version 3.141592653-p4.1.2-u2.00-250202-2.6 (utf8.sjis) (TeX Live 2025) (preloaded format=platex 2025.12.2)  15 DEC 2025 16:22
+This is e-upTeX, Version 3.141592653-p4.1.2-u2.00-250202-2.6 (utf8.sjis) (TeX Live 2025) (preloaded format=platex 2025.12.2)  15 DEC 2025 16:50
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -302,7 +302,7 @@ File: l3backend-dvipdfmx.def 2025-10-09 L3 backend support: dvipdfmx
 \g__graphics_track_int=\count324
 \g__pdfannot_backend_int=\count325
 \g__pdfannot_backend_link_int=\count326
-) (out/main.aux (out/chapters/intro.aux) (out/chapters/tech.aux) (out/chapters/super_resolution.aux) (out/chapters/mutual_conversion.aux) (out/chapters/conclusion.aux) (out/chapters/references.aux) (out/chapters/acknowledgement.aux))
+) (out/main.aux (out/chapters/intro_f.aux) (out/chapters/tech.aux) (out/chapters/super_resolution.aux) (out/chapters/mutual_conversion.aux) (out/chapters/conclusion.aux) (out/chapters/references.aux) (out/chapters/acknowledgement.aux))
 \openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 23.
@@ -382,9 +382,9 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 \openout4 = `main.toc'.
 
 [2]
-\openout2 = `chapters/intro.aux'.
+\openout2 = `chapters/intro_f.aux'.
 
-(./chapters/intro.tex
+(./chapters/intro_f.tex
 第1章
 LaTeX Font Info:    Font shape `JT1/mc/m/n' will be
 (Font)              scaled to size 19.9311pt on input line 1.
@@ -401,29 +401,29 @@ LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
 File: figures/fig_mesh_comparison.png Graphic file (type bmp)
 <figures/fig_mesh_comparison.png>
 LaTeX Font Info:    Font shape `JT1/mc/m/n' will be
-(Font)              scaled to size 8.64899pt on input line 13.
+(Font)              scaled to size 8.64899pt on input line 33.
 LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
-(Font)              scaled to size 8.64899pt on input line 13.
+(Font)              scaled to size 8.64899pt on input line 33.
 [1
 
 
 
 ] [2]
 LaTeX Font Info:    Font shape `JT1/gt/m/n' will be
-(Font)              scaled to size 11.53198pt on input line 38.
+(Font)              scaled to size 11.53198pt on input line 73.
 LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
-(Font)              scaled to size 11.53198pt on input line 38.
+(Font)              scaled to size 11.53198pt on input line 73.
 File: figures/fig_field_vs_intensity.png Graphic file (type bmp)
 <figures/fig_field_vs_intensity.png>
 [3]
 LaTeX Font Info:    Font shape `JT1/mc/bx/n' in size <10> not available
-(Font)              Font shape `JT1/gt/m/n' tried instead on input line 59.
+(Font)              Font shape `JT1/gt/m/n' tried instead on input line 104.
 LaTeX Font Info:    Font shape `JT1/gt/m/n' will be
-(Font)              scaled to size 9.60999pt on input line 59.
+(Font)              scaled to size 9.60999pt on input line 104.
 LaTeX Font Info:    Font shape `JY1/mc/bx/n' in size <10> not available
-(Font)              Font shape `JY1/gt/m/n' tried instead on input line 59.
+(Font)              Font shape `JY1/gt/m/n' tried instead on input line 104.
 LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
-(Font)              scaled to size 9.60999pt on input line 59.
+(Font)              scaled to size 9.60999pt on input line 104.
 ) [4]
 \openout2 = `chapters/tech.aux'.
 
@@ -443,18 +443,18 @@ LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
 
 ] [6]
 
-LaTeX Warning: Citation `dong2014' on page 7 undefined on input line 58.
+LaTeX Warning: Citation `dong2014' on page 7 undefined on input line 54.
 
 [7]
 
-LaTeX Warning: Citation `isola2017' on page 8 undefined on input line 66.
+LaTeX Warning: Citation `isola2017' on page 8 undefined on input line 62.
 
-[8]) [9] [10]
+[8]) [9]
 \openout2 = `chapters/super_resolution.aux'.
 
 (./chapters/super_resolution.tex
 第3章
-) [11
+) [10
 
 
 
@@ -464,7 +464,7 @@ LaTeX Warning: Citation `isola2017' on page 8 undefined on input line 66.
 
 (./chapters/mutual_conversion.tex
 第4章
-) [12
+) [11
 
 
 
@@ -474,7 +474,7 @@ LaTeX Warning: Citation `isola2017' on page 8 undefined on input line 66.
 
 (./chapters/conclusion.tex
 第5章
-) [13
+) [12
 
 
 
@@ -485,7 +485,7 @@ LaTeX Warning: Citation `isola2017' on page 8 undefined on input line 66.
 No file chapters/references.tex.
 \openout2 = `chapters/acknowledgement.aux'.
 
-(./chapters/acknowledgement.tex) [14
+(./chapters/acknowledgement.tex) [13
 
 
 
@@ -493,7 +493,7 @@ No file chapters/references.tex.
 
 
 
-] (out/main.aux (out/chapters/intro.aux) (out/chapters/tech.aux) (out/chapters/super_resolution.aux) (out/chapters/mutual_conversion.aux) (out/chapters/conclusion.aux) (out/chapters/references.aux) (out/chapters/acknowledgement.aux))
+] (out/main.aux (out/chapters/intro_f.aux) (out/chapters/tech.aux) (out/chapters/super_resolution.aux) (out/chapters/mutual_conversion.aux) (out/chapters/conclusion.aux) (out/chapters/references.aux) (out/chapters/acknowledgement.aux))
  ***********
 pLaTeX2e <2023-02-14>+1, based on
 LaTeX2e <2025-11-01>
@@ -507,11 +507,11 @@ Package rerunfilecheck Info: File `main.out' has not changed.
  ) 
 Here is how much of TeX's memory you used:
  13791 strings out of 468182
- 273218 string characters out of 5438211
+ 273268 string characters out of 5438211
  652454 words of memory out of 5000000
  42515 multiletter control sequences out of 15000+600000
  644026 words of font info for 117 fonts, out of 8000000 for 9000
  934 hyphenation exceptions out of 8191
- 73i,13n,80p,603b,1086s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 73i,13n,80p,488b,1086s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on out/main.dvi (17 pages, 46072 bytes).
+Output written on out/main.dvi (16 pages, 45616 bytes).
