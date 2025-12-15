@@ -239,6 +239,26 @@ OUTPUT out/chapters/super_resolution.aux
 INPUT ./chapters/super_resolution.tex
 INPUT ./chapters/super_resolution.tex
 INPUT chapters/super_resolution.tex
+INPUT ./figures/device_structure.png
+INPUT ./figures/device_structure.png
+INPUT ./figures/device_structure.png
+INPUT extractbb -B cropbox -O figures/device_structure.png
+INPUT ./figures/train_data.png
+INPUT ./figures/train_data.png
+INPUT ./figures/train_data.png
+INPUT extractbb -B cropbox -O figures/train_data.png
+INPUT ./figures/C-band.png
+INPUT ./figures/C-band.png
+INPUT ./figures/C-band.png
+INPUT extractbb -B cropbox -O figures/C-band.png
+INPUT ./figures/O-band.png
+INPUT ./figures/O-band.png
+INPUT ./figures/O-band.png
+INPUT extractbb -B cropbox -O figures/O-band.png
+INPUT ./figures/method_comparison.png
+INPUT ./figures/method_comparison.png
+INPUT ./figures/method_comparison.png
+INPUT extractbb -B cropbox -O figures/method_comparison.png
 INPUT ./chapters/mutual_conversion.tex
 INPUT ./chapters/mutual_conversion.tex
 OUTPUT out/chapters/mutual_conversion.aux

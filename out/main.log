@@ -1,4 +1,4 @@
-This is e-upTeX, Version 3.141592653-p4.1.2-u2.00-250202-2.6 (utf8.sjis) (TeX Live 2025) (preloaded format=platex 2025.12.2)  16 DEC 2025 01:58
+This is e-upTeX, Version 3.141592653-p4.1.2-u2.00-250202-2.6 (utf8.sjis) (TeX Live 2025) (preloaded format=platex 2025.12.2)  16 DEC 2025 07:19
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -443,17 +443,30 @@ LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
 
 (./chapters/super_resolution.tex
 第3章
-) [8
+File: figures/device_structure.png Graphic file (type bmp)
+<figures/device_structure.png>
+[8
 
 
 
 
 ]
+File: figures/train_data.png Graphic file (type bmp)
+<figures/train_data.png>
+[9] [10]
+File: figures/C-band.png Graphic file (type bmp)
+<figures/C-band.png>
+File: figures/O-band.png Graphic file (type bmp)
+<figures/O-band.png>
+[11] [12]
+File: figures/method_comparison.png Graphic file (type bmp)
+<figures/method_comparison.png>
+) [13]
 \openout2 = `chapters/mutual_conversion.aux'.
 
 (./chapters/mutual_conversion.tex
 第4章
-) [9
+) [14
 
 
 
@@ -463,7 +476,7 @@ LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
 
 (./chapters/conclusion.tex
 第5章
-) [10
+) [15
 
 
 
@@ -477,14 +490,14 @@ LaTeX Font Info:    Font shape `JY1/gt/m/it' in size <10> not available
 (Font)              Font shape `JY1/gt/m/n' tried instead on input line 24.
 LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
 (Font)              scaled to size 9.60999pt on input line 24.
-) [11
+) [16
 
 
 
 ]
 \openout2 = `chapters/acknowledgement.aux'.
 
-(./chapters/acknowledgement.tex) [12
+(./chapters/acknowledgement.tex) [17
 
 
 ] (out/main.aux (out/chapters/intro_f.aux) (out/chapters/tech.aux) (out/chapters/super_resolution.aux) (out/chapters/mutual_conversion.aux) (out/chapters/conclusion.aux) (out/chapters/acknowledgement.aux))
@@ -494,15 +507,15 @@ LaTeX2e <2025-11-01>
 L3 programming layer <2025-11-14>
  ***********
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 368CD075FFC7A20374182A942FD3E15E;2591.
+(rerunfilecheck)             Checksum: 7AA2FA143360FB6CC7F5691DD9C128CC;2744.
  ) 
 Here is how much of TeX's memory you used:
- 13791 strings out of 468182
- 272855 string characters out of 5438211
- 652637 words of memory out of 5000000
- 42516 multiletter control sequences out of 15000+600000
+ 13828 strings out of 468182
+ 273816 string characters out of 5438211
+ 653114 words of memory out of 5000000
+ 42548 multiletter control sequences out of 15000+600000
  644372 words of font info for 118 fonts, out of 8000000 for 9000
  934 hyphenation exceptions out of 8191
- 73i,13n,80p,348b,1086s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 73i,13n,80p,348b,1129s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on out/main.dvi (15 pages, 43112 bytes).
+Output written on out/main.dvi (20 pages, 57108 bytes).
