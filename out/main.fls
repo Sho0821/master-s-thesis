@@ -133,9 +133,6 @@ INPUT out/chapters/mutual_conversion.aux
 INPUT out/chapters/conclusion.aux
 INPUT out/chapters/conclusion.aux
 INPUT out/chapters/conclusion.aux
-INPUT out/chapters/references.aux
-INPUT out/chapters/references.aux
-INPUT out/chapters/references.aux
 INPUT out/chapters/acknowledgement.aux
 INPUT out/chapters/acknowledgement.aux
 INPUT out/chapters/acknowledgement.aux
@@ -254,7 +251,10 @@ OUTPUT out/chapters/conclusion.aux
 INPUT ./chapters/conclusion.tex
 INPUT ./chapters/conclusion.tex
 INPUT chapters/conclusion.tex
-OUTPUT out/chapters/references.aux
+INPUT out/main.bbl
+INPUT out/main.bbl
+INPUT out/main.bbl
+INPUT c:/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmti10.tfm
 INPUT ./chapters/acknowledgement.tex
 INPUT ./chapters/acknowledgement.tex
 OUTPUT out/chapters/acknowledgement.aux
@@ -277,9 +277,6 @@ INPUT out/chapters/mutual_conversion.aux
 INPUT out/chapters/conclusion.aux
 INPUT out/chapters/conclusion.aux
 INPUT out/chapters/conclusion.aux
-INPUT out/chapters/references.aux
-INPUT out/chapters/references.aux
-INPUT out/chapters/references.aux
 INPUT out/chapters/acknowledgement.aux
 INPUT out/chapters/acknowledgement.aux
 INPUT out/chapters/acknowledgement.aux

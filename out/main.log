@@ -1,4 +1,4 @@
-This is e-upTeX, Version 3.141592653-p4.1.2-u2.00-250202-2.6 (utf8.sjis) (TeX Live 2025) (preloaded format=platex 2025.12.2)  15 DEC 2025 16:50
+This is e-upTeX, Version 3.141592653-p4.1.2-u2.00-250202-2.6 (utf8.sjis) (TeX Live 2025) (preloaded format=platex 2025.12.2)  16 DEC 2025 01:58
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -302,7 +302,7 @@ File: l3backend-dvipdfmx.def 2025-10-09 L3 backend support: dvipdfmx
 \g__graphics_track_int=\count324
 \g__pdfannot_backend_int=\count325
 \g__pdfannot_backend_link_int=\count326
-) (out/main.aux (out/chapters/intro_f.aux) (out/chapters/tech.aux) (out/chapters/super_resolution.aux) (out/chapters/mutual_conversion.aux) (out/chapters/conclusion.aux) (out/chapters/references.aux) (out/chapters/acknowledgement.aux))
+) (out/main.aux (out/chapters/intro_f.aux) (out/chapters/tech.aux) (out/chapters/super_resolution.aux) (out/chapters/mutual_conversion.aux) (out/chapters/conclusion.aux) (out/chapters/acknowledgement.aux))
 \openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 23.
@@ -429,32 +429,21 @@ LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
 
 (./chapters/tech.tex
 第2章
-
-LaTeX Warning: Citation `yee1966' on page 5 undefined on input line 12.
-
 LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
-(Font)              scaled to size 6.72699pt on input line 20.
+(Font)              scaled to size 6.72699pt on input line 17.
 LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
-(Font)              scaled to size 4.805pt on input line 20.
+(Font)              scaled to size 4.805pt on input line 17.
 [5
 
 
 
 
-] [6]
-
-LaTeX Warning: Citation `dong2014' on page 7 undefined on input line 54.
-
-[7]
-
-LaTeX Warning: Citation `isola2017' on page 8 undefined on input line 62.
-
-[8]) [9]
+] [6]) [7]
 \openout2 = `chapters/super_resolution.aux'.
 
 (./chapters/super_resolution.tex
 第3章
-) [10
+) [8
 
 
 
@@ -464,7 +453,7 @@ LaTeX Warning: Citation `isola2017' on page 8 undefined on input line 62.
 
 (./chapters/mutual_conversion.tex
 第4章
-) [11
+) [9
 
 
 
@@ -474,44 +463,46 @@ LaTeX Warning: Citation `isola2017' on page 8 undefined on input line 62.
 
 (./chapters/conclusion.tex
 第5章
-) [12
+) [10
 
+
+
+
+] (out/main.bbl
+LaTeX Font Info:    Font shape `JT1/gt/m/it' in size <10> not available
+(Font)              Font shape `JT1/gt/m/n' tried instead on input line 24.
+LaTeX Font Info:    Font shape `JT1/gt/m/n' will be
+(Font)              scaled to size 9.60999pt on input line 24.
+LaTeX Font Info:    Font shape `JY1/gt/m/it' in size <10> not available
+(Font)              Font shape `JY1/gt/m/n' tried instead on input line 24.
+LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
+(Font)              scaled to size 9.60999pt on input line 24.
+) [11
 
 
 
 ]
-\openout2 = `chapters/references.aux'.
-
-No file chapters/references.tex.
 \openout2 = `chapters/acknowledgement.aux'.
 
-(./chapters/acknowledgement.tex) [13
+(./chapters/acknowledgement.tex) [12
 
 
-
-
-
-
-
-] (out/main.aux (out/chapters/intro_f.aux) (out/chapters/tech.aux) (out/chapters/super_resolution.aux) (out/chapters/mutual_conversion.aux) (out/chapters/conclusion.aux) (out/chapters/references.aux) (out/chapters/acknowledgement.aux))
+] (out/main.aux (out/chapters/intro_f.aux) (out/chapters/tech.aux) (out/chapters/super_resolution.aux) (out/chapters/mutual_conversion.aux) (out/chapters/conclusion.aux) (out/chapters/acknowledgement.aux))
  ***********
 pLaTeX2e <2023-02-14>+1, based on
 LaTeX2e <2025-11-01>
 L3 programming layer <2025-11-14>
  ***********
-
-LaTeX Warning: There were undefined references.
-
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: D8F5B5C065D56CC61ADF2CCA992AAE27;2227.
+(rerunfilecheck)             Checksum: 368CD075FFC7A20374182A942FD3E15E;2591.
  ) 
 Here is how much of TeX's memory you used:
  13791 strings out of 468182
- 273268 string characters out of 5438211
- 652454 words of memory out of 5000000
- 42515 multiletter control sequences out of 15000+600000
- 644026 words of font info for 117 fonts, out of 8000000 for 9000
+ 272855 string characters out of 5438211
+ 652637 words of memory out of 5000000
+ 42516 multiletter control sequences out of 15000+600000
+ 644372 words of font info for 118 fonts, out of 8000000 for 9000
  934 hyphenation exceptions out of 8191
- 73i,13n,80p,488b,1086s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 73i,13n,80p,348b,1086s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on out/main.dvi (16 pages, 45616 bytes).
+Output written on out/main.dvi (15 pages, 43112 bytes).
