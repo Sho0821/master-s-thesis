@@ -24,14 +24,27 @@
 \contentsline {subsection}{\numberline {3.3.2}異波長(Oバンド)への適用結果}{11}{subsection.3.3.2}%
 \contentsline {subsection}{\numberline {3.3.3}従来手法との比較}{13}{subsection.3.3.3}%
 \contentsline {section}{\numberline {3.4}まとめ}{13}{section.3.4}%
-\contentsline {chapter}{\numberline {第4章}相互変換}{14}{chapter.4}%
-\contentsline {section}{\numberline {4.1}研究背景}{14}{section.4.1}%
-\contentsline {section}{\numberline {4.2}研究目的}{14}{section.4.2}%
-\contentsline {section}{\numberline {4.3}本論文の構成}{14}{section.4.3}%
-\contentsline {chapter}{\numberline {第5章}結論}{15}{chapter.5}%
-\contentsline {section}{\numberline {5.1}研究背景}{15}{section.5.1}%
-\contentsline {section}{\numberline {5.2}研究目的}{15}{section.5.2}%
-\contentsline {section}{\numberline {5.3}本論文の構成}{15}{section.5.3}%
-\contentsline {section}{参考文献}{16}{section.5.3}%
-\contentsline {chapter}{参考文献}{16}{chapter*.8}%
-\contentsline {chapter}{謝辞}{17}{chapter*.9}%
+\contentsline {chapter}{\numberline {第4章}画像相互変換による設計資産の活用}{14}{chapter.4}%
+\contentsline {section}{\numberline {4.1}はじめに}{14}{section.4.1}%
+\contentsline {section}{\numberline {4.2}電磁界画像から強度画像への変換}{14}{section.4.2}%
+\contentsline {subsection}{\numberline {4.2.1}研究手順}{15}{subsection.4.2.1}%
+\contentsline {paragraph}{データセットの構築}{15}{section*.10}%
+\contentsline {paragraph}{ネットワーク構造}{15}{section*.11}%
+\contentsline {subsubsection}{検証手順}{17}{section*.12}%
+\contentsline {subsection}{\numberline {4.2.2}結果}{17}{subsection.4.2.2}%
+\contentsline {section}{\numberline {4.3}強度画像から電磁界画像への変換}{19}{section.4.3}%
+\contentsline {subsection}{\numberline {4.3.1}逆変換の困難性}{19}{subsection.4.3.1}%
+\contentsline {subsection}{\numberline {4.3.2}研究手順}{19}{subsection.4.3.2}%
+\contentsline {paragraph}{Generatorの構成}{21}{section*.17}%
+\contentsline {paragraph}{Discriminatorの構成}{21}{section*.18}%
+\contentsline {subsection}{\numberline {4.3.3}結果}{22}{subsection.4.3.3}%
+\contentsline {section}{\numberline {4.4}まとめ}{25}{section.4.4}%
+\contentsline {chapter}{\numberline {第5章}結論}{26}{chapter.5}%
+\contentsline {section}{\numberline {5.1}本研究の総括}{26}{section.5.1}%
+\contentsline {subsection}{\numberline {5.1.1}超解像技術によるシミュレーションの効率化}{26}{subsection.5.1.1}%
+\contentsline {subsection}{\numberline {5.1.2}画像相互変換による設計資産の再利用}{26}{subsection.5.1.2}%
+\contentsline {section}{\numberline {5.2}本研究の意義}{27}{section.5.2}%
+\contentsline {section}{\numberline {5.3}今後の展望}{27}{section.5.3}%
+\contentsline {section}{参考文献}{28}{Item.7}%
+\contentsline {chapter}{参考文献}{28}{chapter*.20}%
+\contentsline {section}{謝辞}{29}{section*.21}%

@@ -265,6 +265,64 @@ OUTPUT out/chapters/mutual_conversion.aux
 INPUT ./chapters/mutual_conversion.tex
 INPUT ./chapters/mutual_conversion.tex
 INPUT chapters/mutual_conversion.tex
+INPUT ./figures/device_structure2.png
+INPUT ./figures/device_structure2.png
+INPUT ./figures/device_structure2.png
+INPUT extractbb -B cropbox -O figures/device_structure2.png
+INPUT ./figures/electro_and_intensity.png
+INPUT ./figures/electro_and_intensity.png
+INPUT ./figures/electro_and_intensity.png
+INPUT extractbb -B cropbox -O figures/electro_and_intensity.png
+INPUT ./figures/convert_cnn.png
+INPUT ./figures/convert_cnn.png
+INPUT ./figures/convert_cnn.png
+INPUT extractbb -B cropbox -O figures/convert_cnn.png
+INPUT ./figures/C-band_intensity.png
+INPUT ./figures/C-band_intensity.png
+INPUT ./figures/C-band_intensity.png
+INPUT extractbb -B cropbox -O figures/C-band_intensity.png
+INPUT ./figures/O-band_intensity.png
+INPUT ./figures/O-band_intensity.png
+INPUT ./figures/O-band_intensity.png
+INPUT extractbb -B cropbox -O figures/O-band_intensity.png
+INPUT ./figures/psnr_e_i.png
+INPUT ./figures/psnr_e_i.png
+INPUT ./figures/psnr_e_i.png
+INPUT extractbb -B cropbox -O figures/psnr_e_i.png
+INPUT c:/texlive/2025/texmf-dist/fonts/tfm/ptex-fonts/standard/tmin10.tfm
+INPUT c:/texlive/2025/texmf-dist/fonts/tfm/ptex-fonts/standard/tmin10.tfm
+INPUT ./figures/pix2pix_samples.png
+INPUT ./figures/pix2pix_samples.png
+INPUT ./figures/pix2pix_samples.png
+INPUT extractbb -B cropbox -O figures/pix2pix_samples.png
+INPUT c:/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmr6.tfm
+INPUT c:/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmmi9.tfm
+INPUT c:/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmmi6.tfm
+INPUT c:/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmsy9.tfm
+INPUT c:/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmsy6.tfm
+INPUT c:/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex9.tfm
+INPUT c:/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm
+INPUT c:/texlive/2025/texmf-dist/fonts/tfm/ptex-fonts/jis/jis.tfm
+INPUT c:/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm
+INPUT c:/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam7.tfm
+INPUT c:/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
+INPUT c:/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm7.tfm
+INPUT ./figures/pix2pix_1550nm.png
+INPUT ./figures/pix2pix_1550nm.png
+INPUT ./figures/pix2pix_1550nm.png
+INPUT extractbb -B cropbox -O figures/pix2pix_1550nm.png
+INPUT ./figures/pix2pix_1551nm.png
+INPUT ./figures/pix2pix_1551nm.png
+INPUT ./figures/pix2pix_1551nm.png
+INPUT extractbb -B cropbox -O figures/pix2pix_1551nm.png
+INPUT ./figures/pix2pix_1552nm.png
+INPUT ./figures/pix2pix_1552nm.png
+INPUT ./figures/pix2pix_1552nm.png
+INPUT extractbb -B cropbox -O figures/pix2pix_1552nm.png
+INPUT ./figures/pix2pix_graph.png
+INPUT ./figures/pix2pix_graph.png
+INPUT ./figures/pix2pix_graph.png
+INPUT extractbb -B cropbox -O figures/pix2pix_graph.png
 INPUT ./chapters/conclusion.tex
 INPUT ./chapters/conclusion.tex
 OUTPUT out/chapters/conclusion.aux
