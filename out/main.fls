@@ -367,6 +367,18 @@ INPUT ./figures/pix2pix_graph.png
 INPUT ./figures/pix2pix_graph.png
 INPUT ./figures/pix2pix_graph.png
 INPUT extractbb -B cropbox -O figures/pix2pix_graph.png
+INPUT ./figures/pix2pix_graph2.png
+INPUT ./figures/pix2pix_graph2.png
+INPUT ./figures/pix2pix_graph2.png
+INPUT extractbb -B cropbox -O figures/pix2pix_graph2.png
+INPUT ./figures/unseen_inference.png
+INPUT ./figures/unseen_inference.png
+INPUT ./figures/unseen_inference.png
+INPUT extractbb -B cropbox -O figures/unseen_inference.png
+INPUT ./figures/lpips_graph.png
+INPUT ./figures/lpips_graph.png
+INPUT ./figures/lpips_graph.png
+INPUT extractbb -B cropbox -O figures/lpips_graph.png
 INPUT ./chapters/conclusion.tex
 INPUT ./chapters/conclusion.tex
 OUTPUT out/chapters/conclusion.aux

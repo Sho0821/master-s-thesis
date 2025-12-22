@@ -43,6 +43,9 @@ P.~Isola, J.-Y. Zhu, T.~Zhou, and A.~A. Efros, ``Image-to-image translation with
 \bibitem{huynh2008scope}
 Q.~Huynh-Thu and M.~Ghanbari, ``Scope of validity of psnr in image/video quality assessment,'' \emph{Electronics Letters}, vol.~44, no.~13, pp. 800--801, 2008.
 
+\bibitem{lpips_zhang}
+R.~Zhang, P.~Isola, A.~A. Efros, E.~Shechtman, and O.~Wang, ``The unreasonable effectiveness of deep features as a perceptual metric,'' in \emph{Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition (CVPR)}, 2018, pp. 586--595.
+
 \bibitem{rp_photonics}
 {RP Photonics Encyclopedia}, ``{Optical Fiber Communications},'' \url{https://www.rp-photonics.com/optical_fiber_communications.html}, accessed: Dec. 22, 2025.
 

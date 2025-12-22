@@ -172,7 +172,9 @@ Pix2Pixは、識別器を欺くように学習する敵対的損失 $\mathcal{L}
 この損失関数により、物理的な構造を維持しつつ、
 細かな変化をリアリティを持って再現することが可能となっている。
 
-\section{評価指標 (PSNR)}
+\section{評価指標}
+
+\subsection{PSNR}
 \label{sec:psnr}
 
 画像の生成精度を定量的に評価する指標として、ピーク信号対雑音比(Peak Signal-to-Noise Ratio: PSNR)を用いる。
@@ -186,6 +188,23 @@ $m \times n$画素の正解画像$I$と生成画像$K$において、
     PSNR = 10 \cdot \log_{10}\left(\frac{MAX_{I}^{2}}{MSE}\right) = 20 \cdot \log_{10}\left(\frac{MAX_{I}}{\sqrt{MSE}}\right)
 \end{equation}
 一般的に、PSNRが30 dB以上であれば、視覚的に劣化が気にならない高品質な画像であるとされる。\cite{huynh2008scope}
+
+\subsection{LPIPS}
+\label{sec:lpips}
+LPIPS(Learned Perceptual Image Patch Similarity)は、深層学習モデル(VGGやAlexNetなど)の内部層から抽出された特徴マップ間の距離として画像間の類似度を定義する指標である\cite{lpips_zhang}。
+従来のPSNRは全画素の輝度値誤差を平均するため、画像のコントラストや全体的な明るさが僅かに変化しただけでスコアが極端に悪化する傾向がある。
+一方、LPIPSは画像の構造的な特徴やパターンを重視するため、人間が直感的に似ていると感じる度合いをより正確に数値化できる。
+
+\subsubsection*{評価値の解釈}
+LPIPSは、値が小さいほど正解に近いことを意味する。
+\begin{itemize}
+    \item \textbf{0.0}: 正解と完全に同一
+    \item \textbf{0.1 以下}: 人間の目で見ても区別が困難なほど、構造やパターンの再現性が極めて高い
+    \item \textbf{0.3 以上}: 知覚的に明らかな構造の崩れや、物理的特徴の欠落が見られる
+\end{itemize}
+物理現象である電磁界分布の再構成においては、輝度の絶対値よりも干渉縞の位置や形状が重要であるため、
+特定の検証フェーズにおいてはLPIPSによる評価が極めて有効である。
+
 
 \section{光通信における波長帯}
 \label{sec:wavelength_bands}
