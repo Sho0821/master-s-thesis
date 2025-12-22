@@ -5,46 +5,54 @@
 \contentsline {section}{\numberline {1.4}研究目的}{4}{section.1.4}%
 \contentsline {chapter}{\numberline {第2章}参考技術}{5}{chapter.2}%
 \contentsline {section}{\numberline {2.1}時間領域有限差分法 (FDTD法)}{5}{section.2.1}%
-\contentsline {section}{\numberline {2.2}Multi-Mode Interferometer (MMI)}{5}{section.2.2}%
-\contentsline {section}{\numberline {2.3}畳み込みニューラルネットワーク (CNN)}{6}{section.2.3}%
-\contentsline {subsection}{\numberline {2.3.1}概要}{6}{subsection.2.3.1}%
-\contentsline {subsection}{\numberline {2.3.2}各層の役割}{6}{subsection.2.3.2}%
-\contentsline {section}{\numberline {2.4}超解像技術}{6}{section.2.4}%
-\contentsline {section}{\numberline {2.5}画像相互変換技術}{7}{section.2.5}%
-\contentsline {subsection}{\numberline {2.5.1}Pix2Pix}{7}{subsection.2.5.1}%
-\contentsline {section}{\numberline {2.6}評価指標 (PSNR)}{7}{section.2.6}%
-\contentsline {chapter}{\numberline {第3章}超解像によるシミュレーションの効率化}{8}{chapter.3}%
-\contentsline {section}{\numberline {3.1}はじめに}{8}{section.3.1}%
-\contentsline {section}{\numberline {3.2}研究手順}{8}{section.3.2}%
-\contentsline {subsection}{\numberline {3.2.1}シミュレーションデバイスとデータ生成}{8}{subsection.3.2.1}%
-\contentsline {subsection}{\numberline {3.2.2}SRCNNモデルと学習プロセス}{9}{subsection.3.2.2}%
-\contentsline {subsection}{\numberline {3.2.3}検証手順}{11}{subsection.3.2.3}%
-\contentsline {section}{\numberline {3.3}結果}{11}{section.3.3}%
-\contentsline {subsection}{\numberline {3.3.1}Cバンド学習モデルの評価}{11}{subsection.3.3.1}%
-\contentsline {subsection}{\numberline {3.3.2}異波長(Oバンド)への適用結果}{11}{subsection.3.3.2}%
-\contentsline {subsection}{\numberline {3.3.3}従来手法との比較}{13}{subsection.3.3.3}%
-\contentsline {section}{\numberline {3.4}まとめ}{13}{section.3.4}%
-\contentsline {chapter}{\numberline {第4章}画像相互変換による設計資産の活用}{14}{chapter.4}%
-\contentsline {section}{\numberline {4.1}はじめに}{14}{section.4.1}%
-\contentsline {section}{\numberline {4.2}電磁界画像から強度画像への変換}{14}{section.4.2}%
-\contentsline {subsection}{\numberline {4.2.1}研究手順}{15}{subsection.4.2.1}%
-\contentsline {paragraph}{データセットの構築}{15}{section*.10}%
-\contentsline {paragraph}{ネットワーク構造}{15}{section*.11}%
-\contentsline {subsubsection}{検証手順}{17}{section*.12}%
-\contentsline {subsection}{\numberline {4.2.2}結果}{17}{subsection.4.2.2}%
-\contentsline {section}{\numberline {4.3}強度画像から電磁界画像への変換}{19}{section.4.3}%
-\contentsline {subsection}{\numberline {4.3.1}逆変換の困難性}{19}{subsection.4.3.1}%
-\contentsline {subsection}{\numberline {4.3.2}研究手順}{19}{subsection.4.3.2}%
-\contentsline {paragraph}{Generatorの構成}{21}{section*.17}%
-\contentsline {paragraph}{Discriminatorの構成}{21}{section*.18}%
-\contentsline {subsection}{\numberline {4.3.3}結果}{22}{subsection.4.3.3}%
-\contentsline {section}{\numberline {4.4}まとめ}{25}{section.4.4}%
-\contentsline {chapter}{\numberline {第5章}結論}{26}{chapter.5}%
-\contentsline {section}{\numberline {5.1}本研究の総括}{26}{section.5.1}%
-\contentsline {subsection}{\numberline {5.1.1}超解像技術によるシミュレーションの効率化}{26}{subsection.5.1.1}%
-\contentsline {subsection}{\numberline {5.1.2}画像相互変換による設計資産の再利用}{26}{subsection.5.1.2}%
-\contentsline {section}{\numberline {5.2}本研究の意義}{27}{section.5.2}%
-\contentsline {section}{\numberline {5.3}今後の展望}{27}{section.5.3}%
-\contentsline {section}{参考文献}{28}{Item.7}%
-\contentsline {chapter}{参考文献}{28}{chapter*.20}%
-\contentsline {section}{謝辞}{29}{section*.21}%
+\contentsline {section}{\numberline {2.2}Multi-Mode Interferometer (MMI)}{6}{section.2.2}%
+\contentsline {section}{\numberline {2.3}畳み込みニューラルネットワーク (CNN)}{7}{section.2.3}%
+\contentsline {subsection}{\numberline {2.3.1}概要}{7}{subsection.2.3.1}%
+\contentsline {subsection}{\numberline {2.3.2}主要な構成層の役割}{7}{subsection.2.3.2}%
+\contentsline {subsubsection}{畳み込み層（Convolutional Layer）}{7}{section*.4}%
+\contentsline {subsubsection}{活性化関数(Activation Function)}{7}{section*.5}%
+\contentsline {subsubsection}{プーリング層(Pooling Layer)}{8}{section*.6}%
+\contentsline {subsection}{\numberline {2.3.3}学習プロセス}{8}{subsection.2.3.3}%
+\contentsline {section}{\numberline {2.4}超解像技術}{8}{section.2.4}%
+\contentsline {section}{\numberline {2.5}画像相互変換技術}{8}{section.2.5}%
+\contentsline {subsection}{\numberline {2.5.1}Pix2Pixの概要と適用例}{8}{subsection.2.5.1}%
+\contentsline {subsection}{\numberline {2.5.2}ネットワークの構成：U-NetとPatchGAN}{9}{subsection.2.5.2}%
+\contentsline {subsubsection}{生成器: U-Net構造}{9}{section*.7}%
+\contentsline {subsubsection}{識別器: PatchGAN}{10}{section*.8}%
+\contentsline {subsection}{\numberline {2.5.3}学習の目的関数}{10}{subsection.2.5.3}%
+\contentsline {section}{\numberline {2.6}評価指標 (PSNR)}{10}{section.2.6}%
+\contentsline {chapter}{\numberline {第3章}超解像によるシミュレーションの効率化}{11}{chapter.3}%
+\contentsline {section}{\numberline {3.1}はじめに}{11}{section.3.1}%
+\contentsline {section}{\numberline {3.2}研究手順}{11}{section.3.2}%
+\contentsline {subsection}{\numberline {3.2.1}シミュレーションデバイスとデータ生成}{11}{subsection.3.2.1}%
+\contentsline {subsection}{\numberline {3.2.2}SRCNNモデルと学習プロセス}{12}{subsection.3.2.2}%
+\contentsline {subsection}{\numberline {3.2.3}検証手順}{14}{subsection.3.2.3}%
+\contentsline {section}{\numberline {3.3}結果}{14}{section.3.3}%
+\contentsline {subsection}{\numberline {3.3.1}Cバンド学習モデルの評価}{14}{subsection.3.3.1}%
+\contentsline {subsection}{\numberline {3.3.2}異波長(Oバンド)への適用結果}{14}{subsection.3.3.2}%
+\contentsline {subsection}{\numberline {3.3.3}従来手法との比較}{16}{subsection.3.3.3}%
+\contentsline {section}{\numberline {3.4}まとめ}{16}{section.3.4}%
+\contentsline {chapter}{\numberline {第4章}画像相互変換による設計資産の活用}{17}{chapter.4}%
+\contentsline {section}{\numberline {4.1}はじめに}{17}{section.4.1}%
+\contentsline {section}{\numberline {4.2}電磁界画像から強度画像への変換}{17}{section.4.2}%
+\contentsline {subsection}{\numberline {4.2.1}研究手順}{18}{subsection.4.2.1}%
+\contentsline {paragraph}{データセットの構築}{18}{section*.15}%
+\contentsline {paragraph}{ネットワーク構造}{18}{section*.16}%
+\contentsline {subsubsection}{検証手順}{20}{section*.17}%
+\contentsline {subsection}{\numberline {4.2.2}結果}{20}{subsection.4.2.2}%
+\contentsline {section}{\numberline {4.3}強度画像から電磁界画像への変換}{22}{section.4.3}%
+\contentsline {subsection}{\numberline {4.3.1}逆変換の困難性}{22}{subsection.4.3.1}%
+\contentsline {subsection}{\numberline {4.3.2}研究手順}{22}{subsection.4.3.2}%
+\contentsline {paragraph}{Generatorの構成}{24}{section*.22}%
+\contentsline {paragraph}{Discriminatorの構成}{24}{section*.23}%
+\contentsline {subsection}{\numberline {4.3.3}結果}{25}{subsection.4.3.3}%
+\contentsline {section}{\numberline {4.4}まとめ}{28}{section.4.4}%
+\contentsline {chapter}{\numberline {第5章}結論}{29}{chapter.5}%
+\contentsline {section}{\numberline {5.1}本研究の総括}{29}{section.5.1}%
+\contentsline {subsection}{\numberline {5.1.1}超解像技術によるシミュレーションの効率化}{29}{subsection.5.1.1}%
+\contentsline {subsection}{\numberline {5.1.2}画像相互変換による設計資産の再利用}{29}{subsection.5.1.2}%
+\contentsline {section}{\numberline {5.2}本研究の意義}{30}{section.5.2}%
+\contentsline {section}{\numberline {5.3}今後の展望}{30}{section.5.3}%
+\contentsline {section}{参考文献}{31}{Item.7}%
+\contentsline {chapter}{参考文献}{31}{chapter*.25}%
+\contentsline {section}{謝辞}{32}{section*.26}%

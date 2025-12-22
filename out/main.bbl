@@ -23,6 +23,17 @@
 \bibitem{soumu_hakusho}
 {総務省}, ``{令和5年版 情報通信白書},'' \url{https://www.soumu.go.jp/johotsusintokei/whitepaper/ja/r05/pdf/index.html}, 2023, accessed: Dec. 22, 2025.
 
+\bibitem{Wang:20}
+\BIBentryALTinterwordspacing
+K.~Wang, X.~Ren, W.~Chang, L.~Lu, D.~Liu, and M.~Zhang, ``Inverse design of digital nanophotonic devices using the adjoint method,'' \emph{Photon. Res.}, vol.~8, no.~4, pp. 528--533, Apr 2020. [Online]. Available: \url{https://opg.optica.org/prj/abstract.cfm?URI=prj-8-4-528}
+\BIBentrySTDinterwordspacing
+
+\bibitem{openfdtd}
+``{OpenFDTD - オープンソースFDTD法シミュレーター},'' \url{https://ss023804.stars.ne.jp/OpenFDTD/index.html}, accessed: Dec. 22, 2025.
+
+\bibitem{lecun1998gradient}
+Y.~LeCun, L.~Bottou, Y.~Bengio, and P.~Haffner, ``Gradient-based learning applied to document recognition,'' \emph{Proceedings of the IEEE}, vol.~86, no.~11, pp. 2278--2324, 1998.
+
 \bibitem{dong2014}
 C.~Dong, C.~C. Loy, K.~He, and X.~Tang, ``Learning a deep convolutional network for image super-resolution,'' in \emph{Proceedings of the European Conference on Computer Vision (ECCV)}.\hskip 1em plus 0.5em minus 0.4em\relax Springer, 2014, pp. 184--199.
 

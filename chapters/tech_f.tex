@@ -16,9 +16,33 @@
     \nabla \times \boldsymbol{H} - \frac{\partial \boldsymbol{D}}{\partial t} &= \boldsymbol{j} \label{eq:maxwell4}
 \end{align}
 ここで、$\boldsymbol{D}$は電束密度、$\boldsymbol{E}$は電界、$\boldsymbol{B}$は磁束密度、$\boldsymbol{H}$は磁界、$\rho$は電荷密度、$\boldsymbol{j}$は電流密度を表す。
+また、電束密度 $\boldsymbol{D}$ と電界 $\boldsymbol{E}$、磁束密度 $\boldsymbol{B}$ と磁界 $\boldsymbol{H}$、電流密度 $\boldsymbol{j}$ と 電界 $\boldsymbol{E}$ の関係は、
+真空中で以下のように表される。
+\begin{align}
+    \boldsymbol{j} &= \sigma \boldsymbol{E} \\
+    \boldsymbol{D} &= \varepsilon_{0} \boldsymbol{E} \\
+    \boldsymbol{B} &= \mu_{0} \boldsymbol{H}
+\end{align}
+このとき $\varepsilon_{0}$ は真空の誘電率、$\mu_{0}$ は真空の透磁率、$\sigma$ は導電率である。
+物質中では $\varepsilon_{0}$ の代わりに $\varepsilon = \varepsilon_{r}\varepsilon_{0}$ が、
+$\mu_{0}$ の代わりに $\mu = \mu_{r}\mu_{0}$ が用いられる。
+ここで $\varepsilon_{r}$ および $\mu_{r}$ はそれぞれ物質の比誘電率、比透磁率である。
+これらを式(\ref{eq:maxwell3})および式(\ref{eq:maxwell4})に代入することで、FDTD法で直接解くべき以下の連立偏微分方程式が得られる。
+\begin{align}
+    \varepsilon \frac{\partial \boldsymbol{E}}{\partial t} &= \nabla \times \boldsymbol{H} - \sigma \boldsymbol{E} \label{eq:fdtd_base_E} \\
+    \mu \frac{\partial \boldsymbol{H}}{\partial t} &= -\nabla \times \boldsymbol{E} \label{eq:fdtd_base_H}
+\end{align}
 
 FDTD法では、Yee格子と呼ばれるスタガード格子を用い、
 電界と磁界を空間的・時間的に半ステップずらして配置することで計算を行う。
+空間および時間の一階微分を中央差分で近似することにより、計算精度を向上させている。
+
+例として、損失のない媒質（$\sigma=0$）における $E_x$ 成分の更新式は、時間ステップ $n$ と空間座標 $(i, j, k)$ を用いて以下のように導出される。
+\begin{equation}
+    E_x^{n+1}(i+\frac{1}{2}, j, k) = E_x^n(i+\frac{1}{2}, j, k) + \frac{\Delta t}{\varepsilon \Delta y} \left( H_z^{n+\frac{1}{2}} - H_z^{n+\frac{1}{2}} \dots \right)
+\end{equation}
+
+本研究ではフリーソフトOpenFDTD\cite{openfdtd}を使用しシミュレーションを行った。
 
 \section{Multi-Mode Interferometer (MMI)}
 \label{sec:mmi}
@@ -41,20 +65,48 @@ MMIの出力における位相バランスや分岐比は、素子の幾何学�
 
 \subsection{概要}
 畳み込みニューラルネットワーク(Convolutional Neural Network: CNN)は、
-画像認識や画像生成の分野で広く用いられる深層学習モデルの一種である。
-画像内の局所的な特徴を効率的に抽出し、位置ずれに対する不変性を持つことから、
-光回路の電磁界分布のような空間的なパターンを持つデータの処理に適している。
+画像認識や画像生成の分野で成果を上げている深層学習モデルの一種である\cite{lecun1998gradient}。
+このモデルは、画像内の「局所的な相関」を効率的に抽出する能力に長けている。
 
-\subsection{各層の役割}
-\begin{itemize}
-    \item \textbf{畳み込み層}: 
-    入力画像に対してカーネル（フィルタ）と呼ばれる重み行列をスライドさせながら積和演算を行い、
-    特徴マップを生成する。これにより、電磁界の干渉縞などの局所的特徴を抽出する。
-    \item \textbf{プーリング層}: 
-    特徴マップを縮小（ダウンサンプリング）し、計算量の削減や過学習の抑制を行う。
-    \item \textbf{全結合層}: 
-    抽出された特徴量を統合し、最終的な出力を行う。
-\end{itemize}
+従来の全結合型ニューラルネットワークでは、
+入力画像の全画素を独立した入力として扱うため、
+画素間の位置関係が無視され、パラメータ数が膨大になるという欠点があった。
+これに対しCNNは、後述する畳み込み層とプーリング層を組み合わせることで、
+位置ずれに対する不変性を持ちつつ、空間的な特徴を階層的に学習することが可能である。
+
+\subsection{主要な構成層の役割}
+
+\subsubsection{畳み込み層（Convolutional Layer）}
+畳み込み層は、入力画像に対してカーネル（フィルタ）
+と呼ばれる小さな重み行列をスライドさせながら積和演算を行う層である。
+画像 $I$ とカーネル $K$ の演算は次のように定義される。
+\begin{equation}
+    S(i, j) = (I * K)(i, j) = \sum_{m} \sum_{n} I(i+m, j+n) K(m, n)
+\end{equation}
+ここで生成される $S(i, j)$ は特徴マップと呼ばれる。
+カーネル内の重みは学習を通じて最適化され、初期の層ではエッジや色などの単純な特徴を、
+深い層ではそれらを組み合わせた複雑なパターンを抽出する。
+
+\subsubsection{活性化関数(Activation Function)}
+畳み込み層の出力には、非線形性を導入するために活性化関数が適用される。
+本研究では主に ReLU(Rectified Linear Unit)を用いる。
+\begin{equation}
+    f(x) = \max(0, x)
+\end{equation}
+この関数は、勾配消失問題を緩和し、ネットワークの学習を高速化・安定化させる効果がある。
+
+\subsubsection{プーリング層(Pooling Layer)}
+プーリング層は、特徴マップの解像度を縮小し、
+情報の圧縮と過学習の抑制を行う層である。
+本研究の超解像タスク(\ref{chap:super_resolution_task})では解像度維持のために省略される場合もあるが、
+画像相互変換(\ref{chap:image_conversion})のような大局的な特徴抽出が必要なタスクでは重要な役割を果たす。
+
+\subsection{学習プロセス}
+ネットワークの重み更新は、定義された損失関数（平均二乗誤差など）を最小化するように、
+誤差逆伝播法を用いて行われる。最適化アルゴリズムには Adam 等の
+勾配降下法をベースとした手法が広く用いられており、
+これにより画像間の複雑な非線形写像の獲得が可能となる。
+
 
 \section{超解像技術}
 \label{sec:super_resolution}
@@ -77,16 +129,48 @@ SRCNN (Super-Resolution CNN) \cite{dong2014}は、
 その関係は非線形である。機械学習を用いることで、
 この複雑な対応関係を学習し、一方の画像から他方の画像を再構成することを試みる。
 
-\subsection{Pix2Pix}
-Pix2Pixは、条件付き敵対的生成ネットワーク(Conditional Generative Adversarial Networks: cGAN)
-に基づいた画像対画像の変換モデルである\cite{isola2017}。
-Pix2Pixは、入力画像から目的の画像を生成する生成器(Generator)と、
-生成された画像が本物か偽物かを判別する識別器(Discriminator)の2つのネットワークで構成される。
-生成器は識別器を騙すように、識別器は生成器の画像を正しく見破るように学習を進めることで、
-生成器はより本物に近い高精度な画像を生成できるようになる。
-本研究における画像変換では、このPix2Pixのモデルを採用し、
-電磁界分布画像と強度分布画像のペアデータを用いて学習を行うことで、
-高度な変換則の獲得を目指す。
+\subsection{Pix2Pixの概要と適用例}
+本研究では画像変換技術として、条件付き敵対的生成ネットワーク(Conditional Generative Adversarial Networks: cGAN)
+に基づいた画像対画像の変換モデルであるPix2Pixを採用した\cite{isola2017}。
+Pix2Pixは、一対の対応する画像データを用いて、画像間の変換則を学習する。
+この手法は一般的には以下のような様々なタスクに適用されている。
+\begin{itemize}
+    \item \textbf{地図から衛星画像への変換}: 記号化された道路地図から複雑な地表の航空写真を生成する(図\ref{fig:pix2pix_example})。
+    \item \textbf{白黒写真のカラー化}: 輝度情報のみの画像から、もっともらしい色彩を推測して付与する。
+    \item \textbf{線画から写真の生成}: 簡単なスケッチから、質感を持ったリアルな物体画像を再構成する。
+\end{itemize}
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.8\linewidth]{figures/pix2pix_example.png}
+  \caption{Pix2Pixの使用例(地図から衛星画像への変換)\cite{isola2017}。}
+  \label{fig:pix2pix_example}
+\end{figure}
+
+本研究では、この画像変換能力を応用し、強度分布画像から電磁界分布を再構成するタスクに適用する。
+
+\subsection{ネットワークの構成：U-NetとPatchGAN}
+Pix2Pixは、生成器(Generator)と識別器(Discriminator)の2つのネットワークで構成される。
+
+\subsubsection{生成器: U-Net構造}
+生成器には、エンコーダ・デコーダ構造を持つU-Netが用いられる。
+U-Netの特徴は、エンコーダの各層とデコーダの対応する層を直接結ぶスキップ接続である。
+これにより、エンコーダで抽出された低次の詳細な空間情報が圧縮によって失われるのを防ぎ、
+高精度な画像の生成を可能にしている。
+
+\subsubsection{識別器: PatchGAN}
+識別器には、画像を小さなパッチ単位で判定するPatchGANが採用されている。
+画像全体を一つの値で判定するのではなく、局所的な領域ごとに本物らしさを評価することで、
+生成画像の高周波成分を向上させ、ボケの少ないパターンの復元を実現している。
+
+\subsection{学習の目的関数}
+Pix2Pixは、識別器を欺くように学習する敵対的損失 $\mathcal{L}_{cGAN}$と、
+生成画像が正解画像から画素レベルで乖離しないように制約するL1損失を組み合わせて学習を行う。
+\begin{equation}
+    G^* = \arg \min_G \max_D \mathcal{L}_{cGAN}(G, D) + \lambda \mathcal{L}_{L1}(G)
+\end{equation}
+この損失関数により、物理的な構造を維持しつつ、
+細かな変化をリアリティを持って再現することが可能となっている。
 
 \section{評価指標 (PSNR)}
 \label{sec:psnr}
