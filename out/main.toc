@@ -38,25 +38,26 @@
 \contentsline {section}{\numberline {3.5}まとめ}{18}{section.3.5}%
 \contentsline {chapter}{\numberline {第4章}画像相互変換による設計資産の活用}{20}{chapter.4}%
 \contentsline {section}{\numberline {4.1}はじめに}{20}{section.4.1}%
-\contentsline {section}{\numberline {4.2}電磁界画像から強度画像への変換}{20}{section.4.2}%
+\contentsline {section}{\numberline {4.2}電磁界分布画像から強度分布画像への変換}{20}{section.4.2}%
 \contentsline {subsection}{\numberline {4.2.1}研究手順}{21}{subsection.4.2.1}%
-\contentsline {paragraph}{データセットの構築}{21}{section*.15}%
-\contentsline {paragraph}{ネットワーク構造}{21}{section*.16}%
-\contentsline {subsubsection}{検証手順}{23}{section*.17}%
-\contentsline {subsection}{\numberline {4.2.2}結果}{23}{subsection.4.2.2}%
-\contentsline {section}{\numberline {4.3}強度画像から電磁界画像への変換}{25}{section.4.3}%
-\contentsline {subsection}{\numberline {4.3.1}逆変換の困難性}{25}{subsection.4.3.1}%
-\contentsline {subsection}{\numberline {4.3.2}研究手順}{25}{subsection.4.3.2}%
-\contentsline {paragraph}{Generatorの構成}{27}{section*.22}%
-\contentsline {paragraph}{Discriminatorの構成}{27}{section*.23}%
-\contentsline {subsection}{\numberline {4.3.3}結果}{28}{subsection.4.3.3}%
-\contentsline {section}{\numberline {4.4}まとめ}{31}{section.4.4}%
-\contentsline {chapter}{\numberline {第5章}結論}{32}{chapter.5}%
-\contentsline {section}{\numberline {5.1}本研究の総括}{32}{section.5.1}%
-\contentsline {subsection}{\numberline {5.1.1}超解像技術によるシミュレーションの効率化}{32}{subsection.5.1.1}%
-\contentsline {subsection}{\numberline {5.1.2}画像相互変換による設計資産の再利用}{32}{subsection.5.1.2}%
-\contentsline {section}{\numberline {5.2}本研究の意義}{33}{section.5.2}%
-\contentsline {section}{\numberline {5.3}今後の展望}{33}{section.5.3}%
-\contentsline {section}{参考文献}{34}{Item.11}%
-\contentsline {chapter}{参考文献}{34}{chapter*.25}%
-\contentsline {section}{謝辞}{35}{section*.26}%
+\contentsline {paragraph}{データセットの構築}{22}{section*.16}%
+\contentsline {paragraph}{ネットワーク構造}{23}{section*.17}%
+\contentsline {subsubsection}{検証手順}{24}{section*.18}%
+\contentsline {subsection}{\numberline {4.2.2}結果}{24}{subsection.4.2.2}%
+\contentsline {section}{\numberline {4.3}強度分布画像から電磁界分布画像への変換}{27}{section.4.3}%
+\contentsline {subsection}{\numberline {4.3.1}逆変換の困難性}{27}{subsection.4.3.1}%
+\contentsline {subsection}{\numberline {4.3.2}Pix2Pixによる画像変換の原理}{28}{subsection.4.3.2}%
+\contentsline {subsection}{\numberline {4.3.3}研究手順}{29}{subsection.4.3.3}%
+\contentsline {paragraph}{Generatorの構成}{30}{section*.24}%
+\contentsline {paragraph}{Discriminatorの構成}{30}{section*.25}%
+\contentsline {subsection}{\numberline {4.3.4}結果}{31}{subsection.4.3.4}%
+\contentsline {section}{\numberline {4.4}まとめ}{34}{section.4.4}%
+\contentsline {chapter}{\numberline {第5章}結論}{35}{chapter.5}%
+\contentsline {section}{\numberline {5.1}本研究の総括}{35}{section.5.1}%
+\contentsline {subsection}{\numberline {5.1.1}超解像技術によるシミュレーションの効率化}{35}{subsection.5.1.1}%
+\contentsline {subsection}{\numberline {5.1.2}画像相互変換による設計資産の再利用}{35}{subsection.5.1.2}%
+\contentsline {section}{\numberline {5.2}本研究の意義}{36}{section.5.2}%
+\contentsline {section}{\numberline {5.3}今後の展望}{36}{section.5.3}%
+\contentsline {section}{参考文献}{37}{Item.11}%
+\contentsline {chapter}{参考文献}{37}{chapter*.27}%
+\contentsline {section}{謝辞}{39}{section*.28}%

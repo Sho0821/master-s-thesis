@@ -127,9 +127,9 @@ INPUT out/chapters/tech_f.aux
 INPUT out/chapters/super_resolution_f.aux
 INPUT out/chapters/super_resolution_f.aux
 INPUT out/chapters/super_resolution_f.aux
-INPUT out/chapters/mutual_conversion.aux
-INPUT out/chapters/mutual_conversion.aux
-INPUT out/chapters/mutual_conversion.aux
+INPUT out/chapters/mutual_conversion_f.aux
+INPUT out/chapters/mutual_conversion_f.aux
+INPUT out/chapters/mutual_conversion_f.aux
 INPUT out/chapters/conclusion.aux
 INPUT out/chapters/conclusion.aux
 INPUT out/chapters/conclusion.aux
@@ -275,12 +275,12 @@ INPUT ./figures/method_comparison.png
 INPUT ./figures/method_comparison.png
 INPUT ./figures/method_comparison.png
 INPUT extractbb -B cropbox -O figures/method_comparison.png
-INPUT ./chapters/mutual_conversion.tex
-INPUT ./chapters/mutual_conversion.tex
-OUTPUT out/chapters/mutual_conversion.aux
-INPUT ./chapters/mutual_conversion.tex
-INPUT ./chapters/mutual_conversion.tex
-INPUT chapters/mutual_conversion.tex
+INPUT ./chapters/mutual_conversion_f.tex
+INPUT ./chapters/mutual_conversion_f.tex
+OUTPUT out/chapters/mutual_conversion_f.aux
+INPUT ./chapters/mutual_conversion_f.tex
+INPUT ./chapters/mutual_conversion_f.tex
+INPUT chapters/mutual_conversion_f.tex
 INPUT ./figures/device_structure2.png
 INPUT ./figures/device_structure2.png
 INPUT ./figures/device_structure2.png
@@ -289,6 +289,10 @@ INPUT ./figures/electro_and_intensity.png
 INPUT ./figures/electro_and_intensity.png
 INPUT ./figures/electro_and_intensity.png
 INPUT extractbb -B cropbox -O figures/electro_and_intensity.png
+INPUT ./figures/other_e_field.png
+INPUT ./figures/other_e_field.png
+INPUT ./figures/other_e_field.png
+INPUT extractbb -B cropbox -O figures/other_e_field.png
 INPUT ./figures/convert_cnn.png
 INPUT ./figures/convert_cnn.png
 INPUT ./figures/convert_cnn.png
@@ -297,14 +301,34 @@ INPUT ./figures/C-band_intensity.png
 INPUT ./figures/C-band_intensity.png
 INPUT ./figures/C-band_intensity.png
 INPUT extractbb -B cropbox -O figures/C-band_intensity.png
+INPUT ./figures/color_map2_c-band.png
+INPUT ./figures/color_map2_c-band.png
+INPUT ./figures/color_map2_c-band.png
+INPUT extractbb -B cropbox -O figures/color_map2_c-band.png
+INPUT ./figures/color_map3_c-band.png
+INPUT ./figures/color_map3_c-band.png
+INPUT ./figures/color_map3_c-band.png
+INPUT extractbb -B cropbox -O figures/color_map3_c-band.png
 INPUT ./figures/O-band_intensity.png
 INPUT ./figures/O-band_intensity.png
 INPUT ./figures/O-band_intensity.png
 INPUT extractbb -B cropbox -O figures/O-band_intensity.png
+INPUT ./figures/color_map2_o-band.png
+INPUT ./figures/color_map2_o-band.png
+INPUT ./figures/color_map2_o-band.png
+INPUT extractbb -B cropbox -O figures/color_map2_o-band.png
+INPUT ./figures/color_map3_o-band.png
+INPUT ./figures/color_map3_o-band.png
+INPUT ./figures/color_map3_o-band.png
+INPUT extractbb -B cropbox -O figures/color_map3_o-band.png
 INPUT ./figures/psnr_e_i.png
 INPUT ./figures/psnr_e_i.png
 INPUT ./figures/psnr_e_i.png
 INPUT extractbb -B cropbox -O figures/psnr_e_i.png
+INPUT ./figures/failure_cnn.png
+INPUT ./figures/failure_cnn.png
+INPUT ./figures/failure_cnn.png
+INPUT extractbb -B cropbox -O figures/failure_cnn.png
 INPUT c:/texlive/2025/texmf-dist/fonts/tfm/ptex-fonts/standard/tmin10.tfm
 INPUT c:/texlive/2025/texmf-dist/fonts/tfm/ptex-fonts/standard/tmin10.tfm
 INPUT ./figures/pix2pix_samples.png
@@ -365,9 +389,9 @@ INPUT out/chapters/tech_f.aux
 INPUT out/chapters/super_resolution_f.aux
 INPUT out/chapters/super_resolution_f.aux
 INPUT out/chapters/super_resolution_f.aux
-INPUT out/chapters/mutual_conversion.aux
-INPUT out/chapters/mutual_conversion.aux
-INPUT out/chapters/mutual_conversion.aux
+INPUT out/chapters/mutual_conversion_f.aux
+INPUT out/chapters/mutual_conversion_f.aux
+INPUT out/chapters/mutual_conversion_f.aux
 INPUT out/chapters/conclusion.aux
 INPUT out/chapters/conclusion.aux
 INPUT out/chapters/conclusion.aux
