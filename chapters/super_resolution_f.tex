@@ -1,0 +1,204 @@
+\chapter{超解像によるシミュレーションの効率化}
+
+\section{はじめに}
+本章では、序論で述べたPIC設計における計算リソースの増大という課題を解決するために、
+機械学習を用いた超解像技術を適用し、
+低解像度のシミュレーション結果から高解像度の電磁界分布を再構成する手法について述べる。
+また、提案手法の汎用性を検証するために、学習時と推論時で異なる波長帯域を用いた。
+その結果についても報告する。
+
+なお、本章で述べる手法および検証結果の一部については、
+国際会議CLEO-PR 2024にて報告を行っている\cite{cleopr_2024}。
+
+\section{機械学習による超解像の原理}
+\label{sec:srcnn_theory}
+本節では、本研究の核となるCNNおよび本研究で採用した超解像アルゴリズムである
+SRCNNの理論的背景について、詳細に解説する。
+
+\subsection{CNN}
+CNNは全結合層とは異なり、入力データの空間的な局所性を保持したまま情報を処理できる。
+
+CNNにおける主要な演算である畳み込みは、入力画像 $X$ に対して、特定の重みを持つフィルタ（カーネル） $W$ をスライドさせながら積和演算を行う。
+出力される特徴マップ $Y$ は以下の式で表される。
+\begin{equation}
+    Y = \sigma(W * X + b)
+\end{equation}
+ここで、$*$ は畳み込み演算、$\sigma$ は活性化関数、
+$b$ はバイアス項である。このフィルタの重みを学習によって最適化することで、
+画像からエッジ、テクスチャ、あるいはより抽象的な物理的特徴を抽出することが可能となる。
+
+\subsection{SRCNN}
+SRCNNは、単一画像超解像のためのエンドツーエンドな学習モデルである。
+従来の超解像手法が複雑な最適化問題を解く必要があったのに対し、
+SRCNNは以下の3つの畳み込み層\cite{dong2014}によって、低解像度画像から高解像度画像
+へのマッピングをシンプルに実行する。
+
+\begin{enumerate}
+    \item \textbf{Patch extraction and representation（パッチ抽出と表現）}:
+    低解像度画像から局所的なパッチを抽出し、それを高次元の特徴ベクトルとして表現する。
+    \item \textbf{Non-linear mapping（非線形マッピング）}:
+    抽出された低解像度の特徴ベクトルを、高解像度の特徴ベクトルへと非線形に写像する。
+    \item \textbf{Reconstruction（再構成）}:
+    高解像度の特徴マップを組み合わせ、最終的な高解像度画像を生成する。
+\end{enumerate}
+
+従来のバイリニア補間などの幾何学的な手法が周辺画素の
+線形平均に基づいているのに対し、SRCNNは非線形な関係を学習するため、
+物理現象に特有の急峻な変化や干渉パターンを高い再現性で復元できる特長がある。
+
+\section{研究手順}
+\label{sec:sr_methodology}
+
+\subsection{シミュレーションデバイスとデータ生成}
+機械学習の学習データとして電磁界パターンを収集するため、
+光回路のFDTDシミュレーションを行った。
+
+\subsubsection*{デバイス構造}
+本研究では、干渉計ベースのシンプルな構造を採用した。
+具体的には、2$\times $2MMIから1つの入力導波路と2つの出力導波路を取り外したデバイスを
+使用する。（図\ref{fig:device_structure}）。
+この構造を用いることで、機械学習の学習素材となる電磁界パターンの画像を取得している。
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.8\linewidth]{figures/device_structure.png}
+  \caption{本研究で使用した学習データ生成用のデバイス。}
+  \label{fig:device_structure}
+\end{figure}
+
+\subsubsection*{計算条件とメッシュサイズ}
+シミュレーションには3次元FDTD法を用いた。
+以下のメッシュサイズを設定した。
+\begin{itemize}
+    \item \textbf{20 nmメッシュ}: 高解像度(High-Resolution: HR)。教師データとして使用。
+    \item \textbf{40 nmメッシュ}: 低解像度(Low-Resolution: LR)。入力データとして使用。
+\end{itemize}
+メッシュサイズを細かくするほど計算時間は指数関数的に増大する。
+20 nmメッシュでの計算と比較して、40 nmメッシュでは計算時間を短縮できるため、
+この低解像度画像から高解像度画像を復元できれば設計効率は大きく向上する。
+
+\subsection{SRCNNモデルと学習プロセス}
+SRCNNは、低解像度画像と高解像度画像のペアを学習させることで、
+画像の特徴量を抽出し、低解像度画像から高解像度画像を再構成する。
+本節では、学習に使用したデータセットの構築方法、
+SRCNNモデルの構造および学習に使用したハイパーパラメータについて述べる。
+
+\subsubsection*{データセットの構築}
+シミュレーションで得られた電磁界分布画像を、それぞれ20枚の画像に分割した。
+分割された画像のうち、電磁界がほとんど存在しない部分は、学習データとして無意味であり
+ノイズとなる可能性があるため除外した。
+残った画像ペアを以下のグループに分割した（図\ref{fig:train_data}）。
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.8\linewidth]{figures/train_data.png}
+  \caption{SRCNNの学習に使用したデータセット。}
+  \label{fig:train_data}
+\end{figure}
+
+\subsubsection*{ネットワーク構造とパラメータ}
+構築したSRCNNモデルの構造およびハイパーパラメータは以下の通りである。
+\begin{itemize}
+    \item \textbf{第1層（畳み込み層）}: フィルタ数 16, フィルタサイズ $3 \times 3$, 活性化関数 ReLU
+    \item \textbf{第2層（畳み込み層）}: フィルタ数 3, フィルタサイズ $3 \times 3$, 活性化関数 ReLU
+    \item \textbf{最適化手法}: Adam
+    \item \textbf{損失関数}: 平均二乗誤差(MSE)
+    \item \textbf{評価指標}: PSNR
+    \item \textbf{エポック数}: 15000
+    \item \textbf{バッチサイズ}: 32
+\end{itemize}
+
+\subsection{検証手順}
+提案手法の性能と適用範囲を示す目的で、以下の3つの検証を進める。
+
+\begin{enumerate}
+    \item \textbf{一般画像による学習モデルでシミュレーション画像を超解像}\\
+    SRCNNが特定の物理データに依存せず、画像としての基本的な復元能力を有するかを検証するため、
+    図\ref{fig:general100}に示したような一般画像が含まれ、Kaggleで公開されているデータセットGeneral100\cite{general100}を
+    学習データとして用い、シミュレーション画像を超解像する。
+    \begin{figure}[htbp]
+      \centering
+      \includegraphics[width=1.0\linewidth]{figures/general100.png}
+      \caption{General100に含まれる画像の例。LRの画像はHRの画像を縮小することによって作成した。}
+      \label{fig:general100}
+    \end{figure}
+
+    \item \textbf{学習時と同じ波長帯のシミュレーション画像を超解像}\\
+    Cバンド(波長1550nm帯)のシミュレーション結果を学習データとして用い、
+    同帯域のシミュレーション画像を超解像する。
+    
+    \item \textbf{学習時とは異なる波長帯のシミュレーション画像を超解像}\\
+    Cバンドのデータで学習したモデルを用いて、異なる波長帯域であるOバンド(波長1300 nm帯)
+    のシミュレーション画像の超解像を超解像する。
+    学習時とは異なる条件下でのモデルの汎用性を検証する。
+\end{enumerate}
+
+また、比較対象として、従来の画像補間手法であるバイリニア補間(Bilinear interpolation)
+およびバイキュービック補間(Bicubic interpolation)による結果と比較する。
+
+\section{結果}
+\label{sec:sr_results}
+
+\subsection{一般画像学習モデルの結果}
+一般画像(図\ref{fig:general100})で学習したモデルをシミュレーション画像の超解像に適用した結果、
+PSNRの改善幅は約1 dBに留まった図(\ref{fig:general100_result})。
+これは、一般画像の学習によってのある程度の超解像能力が確保されたものの、
+電磁界分布特有の周期的なパターンを補完するための知識が不足していたためと考えられる。
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.8\linewidth]{figures/general100_result.png}
+  \caption{一般画像を学習したモデルを用いてシミュレーション画像を超解像した結果。}
+  \label{fig:general100_result}
+\end{figure}
+
+\subsection{Cバンド学習モデルの評価}
+Cバンドのシミュレーション画像を学習データとして用いたモデルを評価した。
+結果として、PSNRは大幅に向上し、約 8 dBの改善が見られた(図\ref{fig:C-band})。
+再構成された画像のPSNRは30 dBを超えており、視覚的にも高解像度画像と遜色のないレベルまで品質が向上した。
+これにより、SRCNNの高い再構成能力が確認された。
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=1.0\linewidth]{figures/C-band.png}
+  \caption{Cバンドを学習したモデルを用いてCバンド画像を超解像した結果。}
+  \label{fig:C-band}
+\end{figure}
+
+\subsection{異波長(Oバンド)への適用結果}
+Cバンドのデータで学習したモデルを用いて、Oバンドのシミュレーション画像を超解像した。
+結果として、Cバンドでの推論時と同等の約30 dbのPSNR値が得られた(図\ref{fig:O-band})。
+波長が異なっても、光の干渉や伝搬といった物理現象に由来する画像の特徴は共通しているため、
+モデルがその特徴を捉えて汎化できたと考えられる。
+この結果は、一度モデルを構築すれば、異なる波長条件のシミュレーションに対しても
+再学習なしで適用できる可能性を示している。
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=1.0\linewidth]{figures/O-band.png}
+  \caption{Cバンドを学習したモデルを用いてOバンド画像の超解像を行った結果。}
+  \label{fig:O-band}
+\end{figure}
+
+\subsection{従来手法との比較}
+SRCNNによる超解像と、従来の補間手法(バイリニア、バイキュービック)による結果を比較した。
+図\ref{fig:method_comparison}に示すように、従来手法もある程度の画質改善効果はあるものの、
+SRCNNと比較するとその効果は約1 dB程度と小さい。
+SRCNNは、学習データから画像の特徴を学習することで、
+単なる幾何学的な補間よりも高度な高解像度化を実現していると言える。
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.8\linewidth]{figures/method_comparison.png}
+  \caption{SRCNNと従来の補間手法(バイリニア, バイキュービック)によるPSNRの比較。}
+  \label{fig:method_comparison}
+\end{figure}
+
+\section{まとめ}
+本章では、PIC設計における計算リソース削減を目的として、
+SRCNNを用いたシミュレーション画像の超解像手法を提案・検証した。
+検証の結果、SRCNNは従来の補間手法よりも優れた再構成能力を示した。
+一般画像による学習では限界があるものの、学習時と同じ波長帯のものを超解像したとき、PSNR30dBを超える高精度な画像再構成が可能であることを確認した。
+さらに、Cバンドで学習したモデルがOバンドのシミュレーション画像に対しても有効であることが示され、
+提案手法の汎用性が実証された。
+これらの結果は、SRCNNが将来の大規模かつ複雑なPIC設計において、
+計算コストを削減するための重要な技術となり得ることを示している。

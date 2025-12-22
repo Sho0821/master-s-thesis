@@ -1,4 +1,4 @@
-This is e-upTeX, Version 3.141592653-p4.1.2-u2.00-250202-2.6 (utf8.sjis) (TeX Live 2025) (preloaded format=platex 2025.12.2)  22 DEC 2025 20:43
+This is e-upTeX, Version 3.141592653-p4.1.2-u2.00-250202-2.6 (utf8.sjis) (TeX Live 2025) (preloaded format=platex 2025.12.2)  23 DEC 2025 00:10
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -302,7 +302,7 @@ File: l3backend-dvipdfmx.def 2025-10-09 L3 backend support: dvipdfmx
 \g__graphics_track_int=\count324
 \g__pdfannot_backend_int=\count325
 \g__pdfannot_backend_link_int=\count326
-) (out/main.aux (out/chapters/intro_f.aux) (out/chapters/tech_f.aux) (out/chapters/super_resolution.aux) (out/chapters/mutual_conversion.aux) (out/chapters/conclusion.aux) (out/chapters/acknowledgement.aux))
+) (out/main.aux (out/chapters/intro_f.aux) (out/chapters/tech_f.aux) (out/chapters/super_resolution_f.aux) (out/chapters/mutual_conversion.aux) (out/chapters/conclusion.aux) (out/chapters/acknowledgement.aux))
 \openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 23.
@@ -441,38 +441,48 @@ LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
 
 
 
-] [6] [7] [8]
+] [6]
+
+LaTeX Warning: Reference `chap:super_resolution_task' on page 7 undefined on input line 101.
+
+[7] [8]
 File: figures/pix2pix_example.png Graphic file (type bmp)
 <figures/pix2pix_example.png>
 [9]) [10]
-\openout2 = `chapters/super_resolution.aux'.
+\openout2 = `chapters/super_resolution_f.aux'.
 
-(./chapters/super_resolution.tex
+(./chapters/super_resolution_f.tex
 第3章
-File: figures/device_structure.png Graphic file (type bmp)
-<figures/device_structure.png>
 [11
 
 
 
 
 ]
+File: figures/device_structure.png Graphic file (type bmp)
+<figures/device_structure.png>
+[12]
 File: figures/train_data.png Graphic file (type bmp)
 <figures/train_data.png>
-[12] [13]
+[13] [14]
+File: figures/general100.png Graphic file (type bmp)
+<figures/general100.png>
+[15]
+File: figures/general100_result.png Graphic file (type bmp)
+<figures/general100_result.png>
 File: figures/C-band.png Graphic file (type bmp)
 <figures/C-band.png>
+[16]
 File: figures/O-band.png Graphic file (type bmp)
 <figures/O-band.png>
-[14] [15]
 File: figures/method_comparison.png Graphic file (type bmp)
 <figures/method_comparison.png>
-) [16]
+) [17] [18] [19]
 \openout2 = `chapters/mutual_conversion.aux'.
 
 (./chapters/mutual_conversion.tex
 第4章
-[17
+[20
 
 
 
@@ -484,25 +494,25 @@ File: figures/electro_and_intensity.png Graphic file (type bmp)
 <figures/electro_and_intensity.png>
 File: figures/convert_cnn.png Graphic file (type bmp)
 <figures/convert_cnn.png>
-[18] [19]
+[21] [22]
 File: figures/C-band_intensity.png Graphic file (type bmp)
 <figures/C-band_intensity.png>
 File: figures/O-band_intensity.png Graphic file (type bmp)
 <figures/O-band_intensity.png>
-[20]
+[23]
 File: figures/psnr_e_i.png Graphic file (type bmp)
 <figures/psnr_e_i.png>
-[21] [22]
+[24] [25]
 LaTeX Font Info:    Font shape `JT1/mc/m/n' will be
 (Font)              scaled to size 6.72699pt on input line 195.
 LaTeX Font Info:    Font shape `JT1/mc/m/n' will be
 (Font)              scaled to size 4.805pt on input line 195.
-[23]
+[26]
 File: figures/pix2pix_samples.png Graphic file (type bmp)
 <figures/pix2pix_samples.png>
 LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
 (Font)              scaled to size 5.76599pt on input line 222.
-[24
+[27
 
 ]
 File: figures/pix2pix_1550nm.png Graphic file (type bmp)
@@ -513,17 +523,17 @@ File: figures/pix2pix_1552nm.png Graphic file (type bmp)
 <figures/pix2pix_1552nm.png>
 File: figures/pix2pix_graph.png Graphic file (type bmp)
 <figures/pix2pix_graph.png>
-) [25] [26] [27] [28]
+) [28] [29] [30] [31]
 \openout2 = `chapters/conclusion.aux'.
 
 (./chapters/conclusion.tex
 第5章
-[29
+[32
 
 
 
 
-]) [30] (out/main.bbl
+]) [33] (out/main.bbl
 LaTeX Font Info:    Font shape `JT1/gt/m/it' in size <10> not available
 (Font)              Font shape `JT1/gt/m/n' tried instead on input line 28.
 LaTeX Font Info:    Font shape `JT1/gt/m/n' will be
@@ -532,7 +542,7 @@ LaTeX Font Info:    Font shape `JY1/gt/m/it' in size <10> not available
 (Font)              Font shape `JY1/gt/m/n' tried instead on input line 28.
 LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
 (Font)              scaled to size 9.60999pt on input line 28.
-) [31
+) [34
 
 
 
@@ -543,25 +553,28 @@ Package hyperref Warning: The anchor of a bookmark and its parent's must not
 
 \openout2 = `chapters/acknowledgement.aux'.
 
-(./chapters/acknowledgement.tex) [32
+(./chapters/acknowledgement.tex) [35
 
 
-] (out/main.aux (out/chapters/intro_f.aux) (out/chapters/tech_f.aux) (out/chapters/super_resolution.aux) (out/chapters/mutual_conversion.aux) (out/chapters/conclusion.aux) (out/chapters/acknowledgement.aux))
+] (out/main.aux (out/chapters/intro_f.aux) (out/chapters/tech_f.aux) (out/chapters/super_resolution_f.aux) (out/chapters/mutual_conversion.aux) (out/chapters/conclusion.aux) (out/chapters/acknowledgement.aux))
  ***********
 pLaTeX2e <2023-02-14>+1, based on
 LaTeX2e <2025-11-01>
 L3 programming layer <2025-11-14>
  ***********
+
+LaTeX Warning: There were undefined references.
+
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: BDBF879CD611FFDBFDB87A8FD32D5CEE;3073.
+(rerunfilecheck)             Checksum: 4F21312870D3C3F54F0824313AA39B2F;3220.
  ) 
 Here is how much of TeX's memory you used:
- 13951 strings out of 468182
- 277039 string characters out of 5438211
- 657627 words of memory out of 5000000
- 42652 multiletter control sequences out of 15000+600000
+ 13969 strings out of 468182
+ 277555 string characters out of 5438211
+ 657956 words of memory out of 5000000
+ 42668 multiletter control sequences out of 15000+600000
  647645 words of font info for 132 fonts, out of 8000000 for 9000
  934 hyphenation exceptions out of 8191
  73i,13n,80p,368b,1156s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on out/main.dvi (35 pages, 106416 bytes).
+Output written on out/main.dvi (38 pages, 115276 bytes).

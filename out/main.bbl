@@ -43,4 +43,10 @@ P.~Isola, J.-Y. Zhu, T.~Zhou, and A.~A. Efros, ``Image-to-image translation with
 \bibitem{huynh2008scope}
 Q.~Huynh-Thu and M.~Ghanbari, ``Scope of validity of psnr in image/video quality assessment,'' \emph{Electronics Letters}, vol.~44, no.~13, pp. 800--801, 2008.
 
+\bibitem{cleopr_2024}
+S.~Toyota and H.~Fukuda, ``Application of super-resolution techniques to photonic integrated circuit design,'' in \emph{2024 Conf. Lasers Electro-Optics Pacific Rim (CLEO-PR)}, 2024, p. We1A\_4.
+
+\bibitem{general100}
+bluesky314, ``{General100 Dataset},'' \url{https://www.kaggle.com/datasets/bluesky314}, 2017, accessed: Dec. 22, 2025.
+
 \end{thebibliography}

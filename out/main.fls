@@ -124,9 +124,9 @@ INPUT out/chapters/intro_f.aux
 INPUT out/chapters/tech_f.aux
 INPUT out/chapters/tech_f.aux
 INPUT out/chapters/tech_f.aux
-INPUT out/chapters/super_resolution.aux
-INPUT out/chapters/super_resolution.aux
-INPUT out/chapters/super_resolution.aux
+INPUT out/chapters/super_resolution_f.aux
+INPUT out/chapters/super_resolution_f.aux
+INPUT out/chapters/super_resolution_f.aux
 INPUT out/chapters/mutual_conversion.aux
 INPUT out/chapters/mutual_conversion.aux
 INPUT out/chapters/mutual_conversion.aux
@@ -241,12 +241,12 @@ INPUT ./figures/pix2pix_example.png
 INPUT ./figures/pix2pix_example.png
 INPUT ./figures/pix2pix_example.png
 INPUT extractbb -B cropbox -O figures/pix2pix_example.png
-INPUT ./chapters/super_resolution.tex
-INPUT ./chapters/super_resolution.tex
-OUTPUT out/chapters/super_resolution.aux
-INPUT ./chapters/super_resolution.tex
-INPUT ./chapters/super_resolution.tex
-INPUT chapters/super_resolution.tex
+INPUT ./chapters/super_resolution_f.tex
+INPUT ./chapters/super_resolution_f.tex
+OUTPUT out/chapters/super_resolution_f.aux
+INPUT ./chapters/super_resolution_f.tex
+INPUT ./chapters/super_resolution_f.tex
+INPUT chapters/super_resolution_f.tex
 INPUT ./figures/device_structure.png
 INPUT ./figures/device_structure.png
 INPUT ./figures/device_structure.png
@@ -255,6 +255,14 @@ INPUT ./figures/train_data.png
 INPUT ./figures/train_data.png
 INPUT ./figures/train_data.png
 INPUT extractbb -B cropbox -O figures/train_data.png
+INPUT ./figures/general100.png
+INPUT ./figures/general100.png
+INPUT ./figures/general100.png
+INPUT extractbb -B cropbox -O figures/general100.png
+INPUT ./figures/general100_result.png
+INPUT ./figures/general100_result.png
+INPUT ./figures/general100_result.png
+INPUT extractbb -B cropbox -O figures/general100_result.png
 INPUT ./figures/C-band.png
 INPUT ./figures/C-band.png
 INPUT ./figures/C-band.png
@@ -354,9 +362,9 @@ INPUT out/chapters/intro_f.aux
 INPUT out/chapters/tech_f.aux
 INPUT out/chapters/tech_f.aux
 INPUT out/chapters/tech_f.aux
-INPUT out/chapters/super_resolution.aux
-INPUT out/chapters/super_resolution.aux
-INPUT out/chapters/super_resolution.aux
+INPUT out/chapters/super_resolution_f.aux
+INPUT out/chapters/super_resolution_f.aux
+INPUT out/chapters/super_resolution_f.aux
 INPUT out/chapters/mutual_conversion.aux
 INPUT out/chapters/mutual_conversion.aux
 INPUT out/chapters/mutual_conversion.aux
