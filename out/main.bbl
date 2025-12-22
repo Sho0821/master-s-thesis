@@ -20,6 +20,9 @@
 \providecommand{\BIBdecl}{\relax}
 \BIBdecl
 
+\bibitem{soumu_hakusho}
+{総務省}, ``{令和5年版 情報通信白書},'' \url{https://www.soumu.go.jp/johotsusintokei/whitepaper/ja/r05/pdf/index.html}, 2023, accessed: Dec. 22, 2025.
+
 \bibitem{dong2014}
 C.~Dong, C.~C. Loy, K.~He, and X.~Tang, ``Learning a deep convolutional network for image super-resolution,'' in \emph{Proceedings of the European Conference on Computer Vision (ECCV)}.\hskip 1em plus 0.5em minus 0.4em\relax Springer, 2014, pp. 184--199.
 

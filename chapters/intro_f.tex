@@ -4,12 +4,19 @@
 \label{sec:background}
 
 近年、クラウドコンピューティングや5G通信の普及に伴い、
-世界的に情報通信量が爆発的に増加している。
+世界的に情報通信量が爆発的に増加している\cite{soumu_hakusho}\ref{fig:soumu_hakusyo}。
 これに伴い、データセンターなどにおける情報処理機器の消費電力増大が課題となっている。
 この課題を解決する技術として、低消費電力かつ大容量伝送が可能な
 光集積回路(PIC: Photonic Integrated Circuit)が注目されている。
 現在のPICは、光信号の伝送のみならず、波長分割多重、スイッチング、変調、受光、モニタリングなど
 多岐にわたる機能をワンチップ上で実現しており、その回路規模は年々大規模化・複雑化の一途をたどっている。
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.8\linewidth]{figures/soumu_hakusyo.png}
+  \caption{世界の通信トラフィックの推移予測\cite{soumu_hakusho}。今後も急激な増加が見込まれている。}
+  \label{fig:soumu_hakusyo}
+\end{figure}
 
 PICの設計プロセスにおいて、電磁界シミュレーションはデバイスの特性を予測・最適化するために
 不可欠な工程である。
@@ -83,6 +90,9 @@ CNNを用いることで、低解像度・高解像度ペアデータから、�
 両者は見た目が大きく異なるが、熟練した設計者が視覚的に推測可能であるのと同様に、
 機械学習によって推測可能であると仮定する。
 
+さらに、ある波長帯域(例：Cバンド)で学習したモデルは、
+異なる波長帯域(例：Oバンド)に対しても、一定の汎用性を持って変換が可能であると考える。
+
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=0.8\linewidth]{figures/fig_field_vs_intensity.png}
@@ -90,9 +100,6 @@ CNNを用いることで、低解像度・高解像度ペアデータから、�
 両者の間には物理的な対応関係が存在し、機械学習による相互変換が可能であると仮定する。}
   \label{fig:field_vs_intensity}
 \end{figure}
-
-さらに、ある波長帯域(例：Cバンド)で学習したモデルは、
-異なる波長帯域(例：Oバンド)に対しても、一定の汎用性を持って変換が可能であると考える。
 
 \section{研究目的}
 \label{sec:purpose}

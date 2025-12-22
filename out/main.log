@@ -1,4 +1,4 @@
-This is e-upTeX, Version 3.141592653-p4.1.2-u2.00-250202-2.6 (utf8.sjis) (TeX Live 2025) (preloaded format=platex 2025.12.2)  19 DEC 2025 18:42
+This is e-upTeX, Version 3.141592653-p4.1.2-u2.00-250202-2.6 (utf8.sjis) (TeX Live 2025) (preloaded format=platex 2025.12.2)  22 DEC 2025 15:39
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -302,7 +302,7 @@ File: l3backend-dvipdfmx.def 2025-10-09 L3 backend support: dvipdfmx
 \g__graphics_track_int=\count324
 \g__pdfannot_backend_int=\count325
 \g__pdfannot_backend_link_int=\count326
-) (out/main.aux (out/chapters/intro_f.aux) (out/chapters/tech.aux) (out/chapters/super_resolution.aux) (out/chapters/mutual_conversion.aux) (out/chapters/conclusion.aux) (out/chapters/acknowledgement.aux))
+) (out/main.aux (out/chapters/intro_f.aux) (out/chapters/tech_f.aux) (out/chapters/super_resolution.aux) (out/chapters/mutual_conversion.aux) (out/chapters/conclusion.aux) (out/chapters/acknowledgement.aux))
 \openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 23.
@@ -398,36 +398,39 @@ LaTeX Font Info:    Font shape `JT1/gt/m/n' will be
 (Font)              scaled to size 13.83836pt on input line 3.
 LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
 (Font)              scaled to size 13.83836pt on input line 3.
-File: figures/fig_mesh_comparison.png Graphic file (type bmp)
-<figures/fig_mesh_comparison.png>
+File: figures/soumu_hakusyo.png Graphic file (type bmp)
+<figures/soumu_hakusyo.png>
 LaTeX Font Info:    Font shape `JT1/mc/m/n' will be
-(Font)              scaled to size 8.64899pt on input line 33.
+(Font)              scaled to size 8.64899pt on input line 17.
 LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
-(Font)              scaled to size 8.64899pt on input line 33.
+(Font)              scaled to size 8.64899pt on input line 17.
 [1
 
 
 
-] [2]
+]
+File: figures/fig_mesh_comparison.png Graphic file (type bmp)
+<figures/fig_mesh_comparison.png>
+[2]
 LaTeX Font Info:    Font shape `JT1/gt/m/n' will be
-(Font)              scaled to size 11.53198pt on input line 73.
+(Font)              scaled to size 11.53198pt on input line 80.
 LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
-(Font)              scaled to size 11.53198pt on input line 73.
+(Font)              scaled to size 11.53198pt on input line 80.
 File: figures/fig_field_vs_intensity.png Graphic file (type bmp)
 <figures/fig_field_vs_intensity.png>
 [3]
 LaTeX Font Info:    Font shape `JT1/mc/bx/n' in size <10> not available
-(Font)              Font shape `JT1/gt/m/n' tried instead on input line 104.
+(Font)              Font shape `JT1/gt/m/n' tried instead on input line 111.
 LaTeX Font Info:    Font shape `JT1/gt/m/n' will be
-(Font)              scaled to size 9.60999pt on input line 104.
+(Font)              scaled to size 9.60999pt on input line 111.
 LaTeX Font Info:    Font shape `JY1/mc/bx/n' in size <10> not available
-(Font)              Font shape `JY1/gt/m/n' tried instead on input line 104.
+(Font)              Font shape `JY1/gt/m/n' tried instead on input line 111.
 LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
-(Font)              scaled to size 9.60999pt on input line 104.
+(Font)              scaled to size 9.60999pt on input line 111.
 ) [4]
-\openout2 = `chapters/tech.aux'.
+\openout2 = `chapters/tech_f.aux'.
 
-(./chapters/tech.tex
+(./chapters/tech_f.tex
 第2章
 LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
 (Font)              scaled to size 6.72699pt on input line 17.
@@ -519,13 +522,13 @@ File: figures/pix2pix_graph.png Graphic file (type bmp)
 
 ]) [27] (out/main.bbl
 LaTeX Font Info:    Font shape `JT1/gt/m/it' in size <10> not available
-(Font)              Font shape `JT1/gt/m/n' tried instead on input line 24.
+(Font)              Font shape `JT1/gt/m/n' tried instead on input line 27.
 LaTeX Font Info:    Font shape `JT1/gt/m/n' will be
-(Font)              scaled to size 9.60999pt on input line 24.
+(Font)              scaled to size 9.60999pt on input line 27.
 LaTeX Font Info:    Font shape `JY1/gt/m/it' in size <10> not available
-(Font)              Font shape `JY1/gt/m/n' tried instead on input line 24.
+(Font)              Font shape `JY1/gt/m/n' tried instead on input line 27.
 LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
-(Font)              scaled to size 9.60999pt on input line 24.
+(Font)              scaled to size 9.60999pt on input line 27.
 ) [28
 
 
@@ -540,7 +543,7 @@ Package hyperref Warning: The anchor of a bookmark and its parent's must not
 (./chapters/acknowledgement.tex) [29
 
 
-] (out/main.aux (out/chapters/intro_f.aux) (out/chapters/tech.aux) (out/chapters/super_resolution.aux) (out/chapters/mutual_conversion.aux) (out/chapters/conclusion.aux) (out/chapters/acknowledgement.aux))
+] (out/main.aux (out/chapters/intro_f.aux) (out/chapters/tech_f.aux) (out/chapters/super_resolution.aux) (out/chapters/mutual_conversion.aux) (out/chapters/conclusion.aux) (out/chapters/acknowledgement.aux))
  ***********
 pLaTeX2e <2023-02-14>+1, based on
 LaTeX2e <2025-11-01>
@@ -550,12 +553,12 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: 6B387C1A7E57D1D48BFEF3095FD6EFB3;3073.
  ) 
 Here is how much of TeX's memory you used:
- 13930 strings out of 468182
- 276464 string characters out of 5438211
- 654217 words of memory out of 5000000
- 42633 multiletter control sequences out of 15000+600000
+ 13938 strings out of 468182
+ 276728 string characters out of 5438211
+ 654328 words of memory out of 5000000
+ 42640 multiletter control sequences out of 15000+600000
  647645 words of font info for 132 fonts, out of 8000000 for 9000
  934 hyphenation exceptions out of 8191
  73i,13n,80p,348b,1156s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on out/main.dvi (32 pages, 93404 bytes).
+Output written on out/main.dvi (32 pages, 94676 bytes).

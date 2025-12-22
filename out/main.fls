@@ -121,9 +121,9 @@ INPUT out/main.aux
 INPUT out/chapters/intro_f.aux
 INPUT out/chapters/intro_f.aux
 INPUT out/chapters/intro_f.aux
-INPUT out/chapters/tech.aux
-INPUT out/chapters/tech.aux
-INPUT out/chapters/tech.aux
+INPUT out/chapters/tech_f.aux
+INPUT out/chapters/tech_f.aux
+INPUT out/chapters/tech_f.aux
 INPUT out/chapters/super_resolution.aux
 INPUT out/chapters/super_resolution.aux
 INPUT out/chapters/super_resolution.aux
@@ -201,13 +201,17 @@ INPUT c:/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmss17.tfm
 INPUT c:/texlive/2025/texmf-dist/fonts/tfm/ptex-fonts/standard/tgoth10.tfm
 INPUT c:/texlive/2025/texmf-dist/fonts/tfm/ptex-fonts/jis/jisg.tfm
 INPUT c:/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmss12.tfm
+INPUT ./figures/soumu_hakusyo.png
+INPUT ./figures/soumu_hakusyo.png
+INPUT ./figures/soumu_hakusyo.png
+INPUT extractbb -B cropbox -O figures/soumu_hakusyo.png
+INPUT c:/texlive/2025/texmf-dist/fonts/tfm/ptex-fonts/standard/tmin10.tfm
+INPUT c:/texlive/2025/texmf-dist/fonts/tfm/ptex-fonts/jis/jis.tfm
+INPUT c:/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmr9.tfm
 INPUT ./figures/fig_mesh_comparison.png
 INPUT ./figures/fig_mesh_comparison.png
 INPUT ./figures/fig_mesh_comparison.png
 INPUT extractbb -B cropbox -O figures/fig_mesh_comparison.png
-INPUT c:/texlive/2025/texmf-dist/fonts/tfm/ptex-fonts/standard/tmin10.tfm
-INPUT c:/texlive/2025/texmf-dist/fonts/tfm/ptex-fonts/jis/jis.tfm
-INPUT c:/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmr9.tfm
 INPUT c:/texlive/2025/texmf-dist/fonts/tfm/ptex-fonts/standard/tgoth10.tfm
 INPUT c:/texlive/2025/texmf-dist/fonts/tfm/ptex-fonts/jis/jisg.tfm
 INPUT c:/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmss12.tfm
@@ -216,12 +220,12 @@ INPUT ./figures/fig_field_vs_intensity.png
 INPUT ./figures/fig_field_vs_intensity.png
 INPUT extractbb -B cropbox -O figures/fig_field_vs_intensity.png
 INPUT c:/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmbx10.tfm
-INPUT ./chapters/tech.tex
-INPUT ./chapters/tech.tex
-OUTPUT out/chapters/tech.aux
-INPUT ./chapters/tech.tex
-INPUT ./chapters/tech.tex
-INPUT chapters/tech.tex
+INPUT ./chapters/tech_f.tex
+INPUT ./chapters/tech_f.tex
+OUTPUT out/chapters/tech_f.aux
+INPUT ./chapters/tech_f.tex
+INPUT ./chapters/tech_f.tex
+INPUT chapters/tech_f.tex
 INPUT c:/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmbx7.tfm
 INPUT c:/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmbx5.tfm
 INPUT c:/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmmib10.tfm
@@ -343,9 +347,9 @@ INPUT out/main.aux
 INPUT out/chapters/intro_f.aux
 INPUT out/chapters/intro_f.aux
 INPUT out/chapters/intro_f.aux
-INPUT out/chapters/tech.aux
-INPUT out/chapters/tech.aux
-INPUT out/chapters/tech.aux
+INPUT out/chapters/tech_f.aux
+INPUT out/chapters/tech_f.aux
+INPUT out/chapters/tech_f.aux
 INPUT out/chapters/super_resolution.aux
 INPUT out/chapters/super_resolution.aux
 INPUT out/chapters/super_resolution.aux
