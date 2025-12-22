@@ -130,9 +130,9 @@ INPUT out/chapters/super_resolution_f.aux
 INPUT out/chapters/mutual_conversion_f.aux
 INPUT out/chapters/mutual_conversion_f.aux
 INPUT out/chapters/mutual_conversion_f.aux
-INPUT out/chapters/conclusion.aux
-INPUT out/chapters/conclusion.aux
-INPUT out/chapters/conclusion.aux
+INPUT out/chapters/conclusion_f.aux
+INPUT out/chapters/conclusion_f.aux
+INPUT out/chapters/conclusion_f.aux
 INPUT out/chapters/acknowledgement.aux
 INPUT out/chapters/acknowledgement.aux
 INPUT out/chapters/acknowledgement.aux
@@ -379,12 +379,12 @@ INPUT ./figures/lpips_graph.png
 INPUT ./figures/lpips_graph.png
 INPUT ./figures/lpips_graph.png
 INPUT extractbb -B cropbox -O figures/lpips_graph.png
-INPUT ./chapters/conclusion.tex
-INPUT ./chapters/conclusion.tex
-OUTPUT out/chapters/conclusion.aux
-INPUT ./chapters/conclusion.tex
-INPUT ./chapters/conclusion.tex
-INPUT chapters/conclusion.tex
+INPUT ./chapters/conclusion_f.tex
+INPUT ./chapters/conclusion_f.tex
+OUTPUT out/chapters/conclusion_f.aux
+INPUT ./chapters/conclusion_f.tex
+INPUT ./chapters/conclusion_f.tex
+INPUT chapters/conclusion_f.tex
 INPUT out/main.bbl
 INPUT out/main.bbl
 INPUT out/main.bbl
@@ -408,9 +408,9 @@ INPUT out/chapters/super_resolution_f.aux
 INPUT out/chapters/mutual_conversion_f.aux
 INPUT out/chapters/mutual_conversion_f.aux
 INPUT out/chapters/mutual_conversion_f.aux
-INPUT out/chapters/conclusion.aux
-INPUT out/chapters/conclusion.aux
-INPUT out/chapters/conclusion.aux
+INPUT out/chapters/conclusion_f.aux
+INPUT out/chapters/conclusion_f.aux
+INPUT out/chapters/conclusion_f.aux
 INPUT out/chapters/acknowledgement.aux
 INPUT out/chapters/acknowledgement.aux
 INPUT out/chapters/acknowledgement.aux

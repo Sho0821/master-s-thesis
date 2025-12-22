@@ -1,4 +1,4 @@
-This is e-upTeX, Version 3.141592653-p4.1.2-u2.00-250202-2.6 (utf8.sjis) (TeX Live 2025) (preloaded format=platex 2025.12.2)  23 DEC 2025 07:47
+This is e-upTeX, Version 3.141592653-p4.1.2-u2.00-250202-2.6 (utf8.sjis) (TeX Live 2025) (preloaded format=platex 2025.12.2)  23 DEC 2025 08:07
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -302,7 +302,7 @@ File: l3backend-dvipdfmx.def 2025-10-09 L3 backend support: dvipdfmx
 \g__graphics_track_int=\count324
 \g__pdfannot_backend_int=\count325
 \g__pdfannot_backend_link_int=\count326
-) (out/main.aux (out/chapters/intro_f.aux) (out/chapters/tech_f.aux) (out/chapters/super_resolution_f.aux) (out/chapters/mutual_conversion_f.aux) (out/chapters/conclusion.aux) (out/chapters/acknowledgement.aux))
+) (out/main.aux (out/chapters/intro_f.aux) (out/chapters/tech_f.aux) (out/chapters/super_resolution_f.aux) (out/chapters/mutual_conversion_f.aux) (out/chapters/conclusion_f.aux) (out/chapters/acknowledgement.aux))
 \openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 23.
@@ -548,16 +548,16 @@ File: figures/unseen_inference.png Graphic file (type bmp)
 File: figures/lpips_graph.png Graphic file (type bmp)
 <figures/lpips_graph.png>
 ) [38] [39] [40]
-\openout2 = `chapters/conclusion.aux'.
+\openout2 = `chapters/conclusion_f.aux'.
 
-(./chapters/conclusion.tex
+(./chapters/conclusion_f.tex
 第5章
 [41
 
 
 
 
-]) [42] (out/main.bbl
+] [42]) [43] (out/main.bbl
 Underfull \hbox (badness 1655) in paragraph at lines 24--25
 []\JY1/mc/m/n/10 総務省\OT1/cmr/m/n/10 , ``\JY1/mc/m/n/10 令和 \OT1/cmr/m/n/10 5 \JY1/mc/m/n/10 年版 情報通信白書\OT1/cmr/m/n/10 ,'' []$https : / / www . soumu . go . jp / johotsusintokei /
  []
@@ -575,21 +575,21 @@ Underfull \hbox (badness 10000) in paragraph at lines 50--51
 []\OT1/cmr/m/n/10 RP Pho-ton-ics En-cy-clo-pe-dia, ``Op-ti-cal Fiber Com-mu-ni-ca-tions,'' []$https : / / www .
  []
 
-[43
+[44
 
 
 
-]) [44]
+]) [45]
 
 Package hyperref Warning: The anchor of a bookmark and its parent's must not
 (hyperref)                be the same. Added a new anchor on input line 69.
 
 \openout2 = `chapters/acknowledgement.aux'.
 
-(./chapters/acknowledgement.tex) [45
+(./chapters/acknowledgement.tex) [46
 
 
-] (out/main.aux (out/chapters/intro_f.aux) (out/chapters/tech_f.aux) (out/chapters/super_resolution_f.aux) (out/chapters/mutual_conversion_f.aux) (out/chapters/conclusion.aux) (out/chapters/acknowledgement.aux))
+] (out/main.aux (out/chapters/intro_f.aux) (out/chapters/tech_f.aux) (out/chapters/super_resolution_f.aux) (out/chapters/mutual_conversion_f.aux) (out/chapters/conclusion_f.aux) (out/chapters/acknowledgement.aux))
  ***********
 pLaTeX2e <2023-02-14>+1, based on
 LaTeX2e <2025-11-01>
@@ -599,15 +599,15 @@ L3 programming layer <2025-11-14>
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 4F5A578A1E502608F805EBE8754003E5;3357.
+(rerunfilecheck)             Checksum: F1434AFF0103A31527410D6E7838A44F;3357.
  ) 
 Here is how much of TeX's memory you used:
  14048 strings out of 468182
- 279851 string characters out of 5438211
+ 279901 string characters out of 5438211
  659079 words of memory out of 5000000
  42737 multiletter control sequences out of 15000+600000
  647645 words of font info for 132 fonts, out of 8000000 for 9000
  934 hyphenation exceptions out of 8191
  73i,13n,80p,368b,1158s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on out/main.dvi (48 pages, 139704 bytes).
+Output written on out/main.dvi (49 pages, 141560 bytes).

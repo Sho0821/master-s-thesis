@@ -5,7 +5,7 @@ A level-1 auxiliary file: chapters/intro_f.aux
 A level-1 auxiliary file: chapters/tech_f.aux
 A level-1 auxiliary file: chapters/super_resolution_f.aux
 A level-1 auxiliary file: chapters/mutual_conversion_f.aux
-A level-1 auxiliary file: chapters/conclusion.aux
+A level-1 auxiliary file: chapters/conclusion_f.aux
 The style file: IEEEtran.bst
 A level-1 auxiliary file: chapters/acknowledgement.aux
 Reallocated singl_function (elt_size=4) to 100 items from 50.
@@ -21,7 +21,7 @@ Database file #1: chapters/bibliography.bib
 Done.
 You've used 14 entries,
             4087 wiz_defined-function locations,
-            907 strings with 9855 characters,
+            907 strings with 9857 characters,
 and the built_in function-call counts, 9526 in all, are:
 = -- 756
 > -- 201
