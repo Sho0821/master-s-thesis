@@ -31,7 +31,7 @@ Maxwell方程式を離散化して解く
 時間領域有限差分
 (FDTD: Finite-Difference Time-Domain)法を用いる必要がある。
 FDTD法を用いて高精度な結果を得るためには、計算メッシュの微細化に伴い
-計算コストは指数関数的に増大する。
+計算コストは指数関数的に増大する(図\ref{fig:cal_time_graph})。
 
 \begin{figure}[htbp]
   \centering
@@ -39,6 +39,13 @@ FDTD法を用いて高精度な結果を得るためには、計算メッシュ�
   \caption{FDTDシミュレーションにおけるメッシュサイズと電磁界分布の解像度の関係。
 微細なメッシュは高精度だが計算コストが高く、粗いメッシュは高速だが情報量が失われる。}
   \label{fig:mesh_comparison}
+\end{figure}
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.8\linewidth]{figures/cal_time_graph.png}
+  \caption{図\ref{fig:mesh_comparison}を計算したときにかかるメッシュサイズごとの計算時間。}
+  \label{fig:cal_time_graph}
 \end{figure}
 
 この計算コスト増大の問題に対し、設計効率を維持・向上させるためには、

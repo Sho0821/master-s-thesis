@@ -212,6 +212,10 @@ INPUT ./figures/fig_mesh_comparison.png
 INPUT ./figures/fig_mesh_comparison.png
 INPUT ./figures/fig_mesh_comparison.png
 INPUT extractbb -B cropbox -O figures/fig_mesh_comparison.png
+INPUT ./figures/cal_time_graph.png
+INPUT ./figures/cal_time_graph.png
+INPUT ./figures/cal_time_graph.png
+INPUT extractbb -B cropbox -O figures/cal_time_graph.png
 INPUT c:/texlive/2025/texmf-dist/fonts/tfm/ptex-fonts/standard/tgoth10.tfm
 INPUT c:/texlive/2025/texmf-dist/fonts/tfm/ptex-fonts/jis/jisg.tfm
 INPUT c:/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmss12.tfm

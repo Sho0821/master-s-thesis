@@ -186,3 +186,21 @@ $m \times n$画素の正解画像$I$と生成画像$K$において、
     PSNR = 10 \cdot \log_{10}\left(\frac{MAX_{I}^{2}}{MSE}\right) = 20 \cdot \log_{10}\left(\frac{MAX_{I}}{\sqrt{MSE}}\right)
 \end{equation}
 一般的に、PSNRが30 dB以上であれば、視覚的に劣化が気にならない高品質な画像であるとされる。\cite{huynh2008scope}
+
+\section{光通信における波長帯}
+\label{sec:wavelength_bands}
+本研究では、提案手法の汎用性を検証するために、CバンドおよびOバンドという2つの代表的な波長帯域を用いている。
+光通信において、これらの波長帯は光ファイバの伝送損失や分散特性に基づいて定義されており、
+PICの設計においても極めて重要である。
+
+\subsection{Oバンド(Original Band)}
+Oバンドは、波長 1260 nm から 1360 nm の範囲を指す。
+この帯域は、石英光ファイバにおいて材料分散と構造分散が打ち消し合う零分散波長近傍に位置しており、長距離伝送における信号波形の歪みが小さいという特徴を持つ。
+シリコンフォトニクスデバイスにおいては、シリコン導波路の透明波長領域に含まれるため、
+短距離・高速通信(データセンター内通信など)をターゲットとしたPIC設計で広く利用されている\cite{rp_photonics}\cite{fiberlabs_band}。
+
+\subsection{Cバンド(Conventional Band)}
+Cバンドは、波長 1530 nm から 1565 nm の範囲を指す。
+この帯域は石英光ファイバの伝送損失が最も低くなる帯域であり、
+光増幅器(EDFA)の増幅帯域とも一致するため、基幹網や長距離通信、
+波長分割多重(WDM)通信において最も標準的に利用されている\cite{rp_photonics}\cite{fiberlabs_band}。
