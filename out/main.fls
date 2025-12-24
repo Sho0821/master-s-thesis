@@ -267,6 +267,10 @@ INPUT ./figures/general100_result.png
 INPUT ./figures/general100_result.png
 INPUT ./figures/general100_result.png
 INPUT extractbb -B cropbox -O figures/general100_result.png
+INPUT ./figures/general100_result2.png
+INPUT ./figures/general100_result2.png
+INPUT ./figures/general100_result2.png
+INPUT extractbb -B cropbox -O figures/general100_result2.png
 INPUT ./figures/C-band.png
 INPUT ./figures/C-band.png
 INPUT ./figures/C-band.png
@@ -279,6 +283,10 @@ INPUT ./figures/method_comparison.png
 INPUT ./figures/method_comparison.png
 INPUT ./figures/method_comparison.png
 INPUT extractbb -B cropbox -O figures/method_comparison.png
+INPUT ./figures/method_comparison2.png
+INPUT ./figures/method_comparison2.png
+INPUT ./figures/method_comparison2.png
+INPUT extractbb -B cropbox -O figures/method_comparison2.png
 INPUT ./chapters/mutual_conversion_f.tex
 INPUT ./chapters/mutual_conversion_f.tex
 OUTPUT out/chapters/mutual_conversion_f.aux
@@ -329,6 +337,10 @@ INPUT ./figures/psnr_e_i.png
 INPUT ./figures/psnr_e_i.png
 INPUT ./figures/psnr_e_i.png
 INPUT extractbb -B cropbox -O figures/psnr_e_i.png
+INPUT ./figures/lpips_e_i.png
+INPUT ./figures/lpips_e_i.png
+INPUT ./figures/lpips_e_i.png
+INPUT extractbb -B cropbox -O figures/lpips_e_i.png
 INPUT ./figures/failure_cnn.png
 INPUT ./figures/failure_cnn.png
 INPUT ./figures/failure_cnn.png
@@ -367,14 +379,26 @@ INPUT ./figures/pix2pix_graph.png
 INPUT ./figures/pix2pix_graph.png
 INPUT ./figures/pix2pix_graph.png
 INPUT extractbb -B cropbox -O figures/pix2pix_graph.png
+INPUT ./figures/pix2pix_graph_lpips.png
+INPUT ./figures/pix2pix_graph_lpips.png
+INPUT ./figures/pix2pix_graph_lpips.png
+INPUT extractbb -B cropbox -O figures/pix2pix_graph_lpips.png
 INPUT ./figures/pix2pix_graph2.png
 INPUT ./figures/pix2pix_graph2.png
 INPUT ./figures/pix2pix_graph2.png
 INPUT extractbb -B cropbox -O figures/pix2pix_graph2.png
+INPUT ./figures/pix2pix_graph2_lpips.png
+INPUT ./figures/pix2pix_graph2_lpips.png
+INPUT ./figures/pix2pix_graph2_lpips.png
+INPUT extractbb -B cropbox -O figures/pix2pix_graph2_lpips.png
 INPUT ./figures/unseen_inference.png
 INPUT ./figures/unseen_inference.png
 INPUT ./figures/unseen_inference.png
 INPUT extractbb -B cropbox -O figures/unseen_inference.png
+INPUT ./figures/psnr_graph.png
+INPUT ./figures/psnr_graph.png
+INPUT ./figures/psnr_graph.png
+INPUT extractbb -B cropbox -O figures/psnr_graph.png
 INPUT ./figures/lpips_graph.png
 INPUT ./figures/lpips_graph.png
 INPUT ./figures/lpips_graph.png

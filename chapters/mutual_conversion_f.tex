@@ -199,11 +199,21 @@ PICの設計プロセスにおいて、
 \end{figure}
 
 \subsubsection*{定量評価 (PSNR)}
-再構成精度の定量的な評価として、PSNRを算出した。結果を図\ref{fig:psnr_e_i}に示す。
+再構成精度の定量的な評価として、PSNRおよびLPIPSを算出した。結果を図\ref{fig:psnr_e_i}、図\ref{fig:lpips_e_i}に示す。
 
 Cバンドでの推論結果は30 dBを超える高い値を示し、
 Oバンドでの推論結果においても約30 dBという値を達成した。
-この結果は、ある波長帯域で構築した変換モデルが、
+
+一方で、LPIPSの数値は約0.3弱を記録した。
+この要因として、強度分布画像においてピークが
+集中する領域でのわずかなコントラストの変化等が、
+LPIPSが重視する知覚的な特徴に敏感に反映されたためと考えられる。
+
+しかし、視覚的な比較結果からも明らかな通り、
+干渉パターンの全体像やピークの位置、
+導波路内での閉じ込めといった設計資産として再利用する上で
+必要な物理的特徴は捉えられている。
+PSNRに関しては良好であることから、この結果は、ある波長帯域で構築した変換モデルが、
 設計変更によって波長が変わったとしても、
 再学習なしで一定の精度で適用可能であることを示している。
 
@@ -220,6 +230,13 @@ Oバンドでの推論結果においても約30 dBという値を達成した�
   \includegraphics[width=0.8\linewidth]{figures/psnr_e_i.png}
   \caption{再構成された強度分布画像のPSNR評価結果。Cバンド(学習済み)とOバンド(未学習)の双方が30 dB付近の高い精度を示している。}
   \label{fig:psnr_e_i}
+\end{figure}
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.8\linewidth]{figures/lpips_e_i.png}
+  \caption{再構成された強度分布画像のLPIPS評価結果。}
+  \label{fig:lpips_e_i}
 \end{figure}
 
 \section{強度分布画像から電磁界分布画像への変換}
@@ -395,17 +412,17 @@ CAD画像によってコアとクラッドの境界情報が与えられてい�
   \label{fig:pix2pix_1552nm}
 \end{figure}
 
-定量評価として、テストデータに対するPSNRを
-図\ref{fig:pix2pix_graph}、図\ref{fig:pix2pix_graph2}に示す。
+定量評価として、テストデータに対するPSNR、LPIPSを
+図\ref{fig:pix2pix_graph}、図\ref{fig:pix2pix_graph2}、図\ref{fig:pix2pix_graph_lpips}、図\ref{fig:pix2pix_graph2_lpips}に示す。
 検証の結果、注目すべき点として、強度画像を入力に含まない場合であっても、
-PSNRが30 dBに達するケースが確認された。
+PSNRが30 dBに達するケースが確認され、LPIPSも0.1を大きく下回る結果となった。
 これは、提案モデルが単に入力画像のピクセル値を変換しているのではなく、
 CADと波長・励振点の組み合わせから、
 デバイス内部で発生すべき物理的な干渉パターンの型を学習できていることを意味する。
 つまり、構造情報と物理ラベルのみからでも、電磁界の分布を一定の精度で予測できる
 ポテンシャルをモデルが備えていることが示された。
 
-一方で、強度分布画像を追加することでPSNRはさらに向上し、
+一方で、強度分布画像を追加することでPSNRはさらに向上し、LPIPSもさらに低下している。
 より安定して高精度な復元が可能となる。この結果は、CAD画像とラベルが
 物理的な枠組みを定義し、強度分布画像が個別の構造における具体的な電磁界の振る舞い
 を補完するという、8チャンネル入力構成の合理性を裏付けるものである。
@@ -421,9 +438,23 @@ CADと波長・励振点の組み合わせから、
 
 \begin{figure}[htbp]
   \centering
+  \includegraphics[width=0.8\linewidth]{figures/pix2pix_graph_lpips.png}
+  \caption{テストデータ(波長1550nm,1551nm,1552nm)に対するLPIPS評価結果。}
+  \label{fig:pix2pix_graph_lpips}
+\end{figure}
+
+\begin{figure}[htbp]
+  \centering
   \includegraphics[width=0.8\linewidth]{figures/pix2pix_graph2.png}
   \caption{テストデータ(波長1550nm,1551nm,1552nm)に対するPSNR評価結果(入力に強度分布画像無し)。}
   \label{fig:pix2pix_graph2}
+\end{figure}
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.8\linewidth]{figures/pix2pix_graph2_lpips.png}
+  \caption{テストデータ(波長1550nm,1551nm,1552nm)に対するLPIPS評価結果(入力に強度分布画像無し)。}
+  \label{fig:pix2pix_graph2_lpips}
 \end{figure}
 
 \subsection{未知のデバイス構造に対する汎用性検証：LPIPSによる評価}
@@ -435,14 +466,14 @@ CADと波長・励振点の組み合わせから、
 学習データには「縦 $2.25\,\mu\text{m}$(パターン2)」や「横 $18.5\,\mu\text{m}$(パターン3)」のバリエーションは含まれていたが、
 この寸法は初見となる。このデバイスに対し、波長 1530 nm、励振点 $1, 4, 7\,\mu\text{m}$ の条件で推論を行った。
 
-本検証では、デバイス形状の変化に伴うコントラストや輝度の変動に左右されず、
-物理パターンの構造的類似性を正しく評価するため、評価指標として\ref{sec:lpips}で詳述したLPIPSを採用する。
-
 \paragraph{結果}
 図\ref{fig:unseen_inference}に、正解データと推論結果の比較を示す。
 導波路境界における電磁界の閉じ込めや、多モード干渉特有の複雑な波面が鮮明に再現されていることがわかる。
-定量評価の結果を図\ref{fig:lpips_graph}に示す。
-検証の結果、未学習のデバイスに対してもLPIPSは0.1以下を記録しており、
+定量評価の結果を図\ref{fig:psnr_graph},図\ref{fig:lpips_graph}に示す。
+検証の結果、この未知構造に対してはPSNRが30~dBを大きく下回る結果となった。
+これは、未学習のデバイス寸法に起因する全体的な輝度バランスの変動や
+コントラストの変化が、画素ごとの誤差を平均化するPSNRの数値に敏感に反映されたためと考えられる。
+一方、LPIPSは0.1以下を記録しており、
 知覚的に極めて類似した干渉縞が生成されていることが確認された。
 学習データにない形状に対してもLPIPS 0.1以下という再現性を維持している点は、
 本手法が未知の設計パラメータに対しても機能する汎用性を備えていることを実証している。
@@ -452,6 +483,13 @@ CADと波長・励振点の組み合わせから、
   \includegraphics[width=0.8\linewidth]{figures/unseen_inference.png}
   \caption{未知の構造における電磁界分布画像の再構成結果。}
   \label{fig:unseen_inference}
+\end{figure}
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.8\linewidth]{figures/psnr_graph.png}
+  \caption{未知の構造における再構成電磁界分布画像に対するPSNR評価結果。}
+  \label{fig:psnr_graph}
 \end{figure}
 
 \begin{figure}[htbp]

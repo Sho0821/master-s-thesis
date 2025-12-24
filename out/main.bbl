@@ -40,6 +40,9 @@ C.~Dong, C.~C. Loy, K.~He, and X.~Tang, ``Learning a deep convolutional network 
 \bibitem{isola2017}
 P.~Isola, J.-Y. Zhu, T.~Zhou, and A.~A. Efros, ``Image-to-image translation with conditional adversarial networks,'' in \emph{Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition (CVPR)}, 2017, pp. 1125--1134.
 
+\bibitem{pix2pix_sorabatake}
+{sorabatake}, ``{Pix2Pixで宅地利用調査から任意の衛星画像を生成するアルゴリズムを作る},'' \url{https://github.com/sorabatake/article_27179_pix2pix}, accessed: Dec. 23, 2025.
+
 \bibitem{huynh2008scope}
 Q.~Huynh-Thu and M.~Ghanbari, ``Scope of validity of psnr in image/video quality assessment,'' \emph{Electronics Letters}, vol.~44, no.~13, pp. 800--801, 2008.
 

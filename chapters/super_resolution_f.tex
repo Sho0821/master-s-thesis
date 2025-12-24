@@ -140,20 +140,28 @@ SRCNNモデルの構造および学習に使用したハイパーパラメータ
 
 \subsection{一般画像学習モデルの結果}
 一般画像(図\ref{fig:general100})で学習したモデルをシミュレーション画像の超解像に適用した結果、
-PSNRの改善幅は約1 dBに留まった図(\ref{fig:general100_result})。
+PSNRの改善幅は約1 dBに留まり(図(\ref{fig:general100_result}))、
+LPIPS指標においても改善は見られなかった(図(\ref{fig:general100_result2}))。
 これは、一般画像の学習によってのある程度の超解像能力が確保されたものの、
 電磁界分布特有の周期的なパターンを補完するための知識が不足していたためと考えられる。
 
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=0.8\linewidth]{figures/general100_result.png}
-  \caption{一般画像を学習したモデルを用いてシミュレーション画像を超解像した結果。}
+  \caption{一般画像を学習したモデルを用いてシミュレーション画像を超解像した結果(PSNR)。}
   \label{fig:general100_result}
+\end{figure}
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.8\linewidth]{figures/general100_result2.png}
+  \caption{一般画像を学習したモデルを用いてシミュレーション画像を超解像した結果(LPIPS)。}
+  \label{fig:general100_result2}
 \end{figure}
 
 \subsection{Cバンド学習モデルの評価}
 Cバンドのシミュレーション画像を学習データとして用いたモデルを評価した。
-結果として、PSNRは大幅に向上し、約 8 dBの改善が見られた(図\ref{fig:C-band})。
+結果として、PSNRは大幅に向上し、約 8 dBの改善が見られ、同時にLPIPS値も多少低下し、0.1に近づいた(図\ref{fig:C-band})。
 再構成された画像のPSNRは30 dBを超えており、視覚的にも高解像度画像と遜色のないレベルまで品質が向上した。
 これにより、SRCNNの高い再構成能力が確認された。
 
@@ -166,7 +174,7 @@ Cバンドのシミュレーション画像を学習データとして用いた�
 
 \subsection{異波長(Oバンド)への適用結果}
 Cバンドのデータで学習したモデルを用いて、Oバンドのシミュレーション画像を超解像した。
-結果として、Cバンドでの推論時と同等の約30 dbのPSNR値が得られた(図\ref{fig:O-band})。
+結果として、Cバンドでの推論時と同等の約30 dbのPSNR値と0.1に近いLPIPS値が得られた(図\ref{fig:O-band})。
 波長が異なっても、光の干渉や伝搬といった物理現象に由来する画像の特徴は共通しているため、
 モデルがその特徴を捉えて汎化できたと考えられる。
 この結果は、一度モデルを構築すれば、異なる波長条件のシミュレーションに対しても
@@ -181,8 +189,8 @@ Cバンドのデータで学習したモデルを用いて、Oバンドのシミ
 
 \subsection{従来手法との比較}
 SRCNNによる超解像と、従来の補間手法(バイリニア、バイキュービック)による結果を比較した。
-図\ref{fig:method_comparison}に示すように、従来手法もある程度の画質改善効果はあるものの、
-SRCNNと比較するとその効果は約1 dB程度と小さい。
+図\ref{fig:method_comparison}、図\ref{fig:method_comparison2}に示すように、従来手法もある程度の画質改善効果はあるものの、
+SRCNNと比較するとその効果は約1 dB程度と小さく、LPIPSにおいては改善が見られない。
 SRCNNは、学習データから画像の特徴を学習することで、
 単なる幾何学的な補間よりも高度な高解像度化を実現していると言える。
 
@@ -191,6 +199,13 @@ SRCNNは、学習データから画像の特徴を学習することで、
   \includegraphics[width=0.8\linewidth]{figures/method_comparison.png}
   \caption{SRCNNと従来の補間手法(バイリニア, バイキュービック)によるPSNRの比較。}
   \label{fig:method_comparison}
+\end{figure}
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.8\linewidth]{figures/method_comparison2.png}
+  \caption{SRCNNと従来の補間手法(バイリニア, バイキュービック)によるLPIPSの比較。}
+  \label{fig:method_comparison2}
 \end{figure}
 
 \section{まとめ}

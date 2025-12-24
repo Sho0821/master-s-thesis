@@ -37,38 +37,46 @@
 \newlabel{fig:psnr_e_i}{{4.11}{30}{再構成された強度分布画像のPSNR評価結果。Cバンド(学習済み)とOバンド(未学習)の双方が30 dB付近の高い精度を示している。}{figure.4.11}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {4.3}強度分布画像から電磁界分布画像への変換}{30}{section.4.3}\protected@file@percent }
 \newlabel{sec:intensity_to_field}{{4.3}{30}{強度分布画像から電磁界分布画像への変換}{section.4.3}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.3.1}逆変換の困難性}{30}{subsection.4.3.1}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {4.12}{\ignorespaces CNNによる電磁場画像の再構成失敗例。}}{31}{figure.4.12}\protected@file@percent }
-\newlabel{fig:failure_cnn}{{4.12}{31}{CNNによる電磁場画像の再構成失敗例。}{figure.4.12}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.3.2}Pix2Pixによる画像変換の原理}{31}{subsection.4.3.2}\protected@file@percent }
-\newlabel{sec:pix2pix_theory}{{4.3.2}{31}{Pix2Pixによる画像変換の原理}{subsection.4.3.2}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.12}{\ignorespaces 再構成された強度分布画像のLPIPS評価結果。}}{31}{figure.4.12}\protected@file@percent }
+\newlabel{fig:lpips_e_i}{{4.12}{31}{再構成された強度分布画像のLPIPS評価結果。}{figure.4.12}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3.1}逆変換の困難性}{31}{subsection.4.3.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {4.13}{\ignorespaces CNNによる電磁場画像の再構成失敗例。}}{31}{figure.4.13}\protected@file@percent }
+\newlabel{fig:failure_cnn}{{4.13}{31}{CNNによる電磁場画像の再構成失敗例。}{figure.4.13}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3.2}Pix2Pixによる画像変換の原理}{32}{subsection.4.3.2}\protected@file@percent }
+\newlabel{sec:pix2pix_theory}{{4.3.2}{32}{Pix2Pixによる画像変換の原理}{subsection.4.3.2}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.3.3}研究手順}{32}{subsection.4.3.3}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {4.13}{\ignorespaces Pix2Pixに使用したデータセットの構成例(波長1530nm,励振位置1 $\mu $m,パターン1)。}}{34}{figure.4.13}\protected@file@percent }
-\newlabel{fig:pix2pix_samples}{{4.13}{34}{Pix2Pixに使用したデータセットの構成例(波長1530nm,励振位置1 $\mu $m,パターン1)。}{figure.4.13}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.14}{\ignorespaces Pix2Pixに使用したデータセットの構成例(波長1530nm,励振位置1 $\mu $m,パターン1)。}}{34}{figure.4.14}\protected@file@percent }
+\newlabel{fig:pix2pix_samples}{{4.14}{34}{Pix2Pixに使用したデータセットの構成例(波長1530nm,励振位置1 $\mu $m,パターン1)。}{figure.4.14}{}}
 \@writefile{toc}{\contentsline {paragraph}{Generatorの構成}{34}{section*.25}\protected@file@percent }
 \@writefile{toc}{\contentsline {paragraph}{Discriminatorの構成}{34}{section*.26}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.3.4}結果}{35}{subsection.4.3.4}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {4.14}{\ignorespaces Pix2Pixによる強度分布画像からの電磁界分布の再構成結果(波長1550nm)。}}{36}{figure.4.14}\protected@file@percent }
-\newlabel{fig:pix2pix_1550nm}{{4.14}{36}{Pix2Pixによる強度分布画像からの電磁界分布の再構成結果(波長1550nm)。}{figure.4.14}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.15}{\ignorespaces Pix2Pixによる強度分布画像からの電磁界分布の再構成結果(波長1551nm)。}}{36}{figure.4.15}\protected@file@percent }
-\newlabel{fig:pix2pix_1551nm}{{4.15}{36}{Pix2Pixによる強度分布画像からの電磁界分布の再構成結果(波長1551nm)。}{figure.4.15}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.16}{\ignorespaces Pix2Pixによる強度分布画像からの電磁界分布の再構成結果(波長1552nm)。}}{37}{figure.4.16}\protected@file@percent }
-\newlabel{fig:pix2pix_1552nm}{{4.16}{37}{Pix2Pixによる強度分布画像からの電磁界分布の再構成結果(波長1552nm)。}{figure.4.16}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.17}{\ignorespaces テストデータ(波長1550nm,1551nm,1552nm)に対するPSNR評価結果。}}{37}{figure.4.17}\protected@file@percent }
-\newlabel{fig:pix2pix_graph}{{4.17}{37}{テストデータ(波長1550nm,1551nm,1552nm)に対するPSNR評価結果。}{figure.4.17}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.18}{\ignorespaces テストデータ(波長1550nm,1551nm,1552nm)に対するPSNR評価結果(入力に強度分布画像無し)。}}{38}{figure.4.18}\protected@file@percent }
-\newlabel{fig:pix2pix_graph2}{{4.18}{38}{テストデータ(波長1550nm,1551nm,1552nm)に対するPSNR評価結果(入力に強度分布画像無し)。}{figure.4.18}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.15}{\ignorespaces Pix2Pixによる強度分布画像からの電磁界分布の再構成結果(波長1550nm)。}}{36}{figure.4.15}\protected@file@percent }
+\newlabel{fig:pix2pix_1550nm}{{4.15}{36}{Pix2Pixによる強度分布画像からの電磁界分布の再構成結果(波長1550nm)。}{figure.4.15}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.16}{\ignorespaces Pix2Pixによる強度分布画像からの電磁界分布の再構成結果(波長1551nm)。}}{36}{figure.4.16}\protected@file@percent }
+\newlabel{fig:pix2pix_1551nm}{{4.16}{36}{Pix2Pixによる強度分布画像からの電磁界分布の再構成結果(波長1551nm)。}{figure.4.16}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.17}{\ignorespaces Pix2Pixによる強度分布画像からの電磁界分布の再構成結果(波長1552nm)。}}{37}{figure.4.17}\protected@file@percent }
+\newlabel{fig:pix2pix_1552nm}{{4.17}{37}{Pix2Pixによる強度分布画像からの電磁界分布の再構成結果(波長1552nm)。}{figure.4.17}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.18}{\ignorespaces テストデータ(波長1550nm,1551nm,1552nm)に対するPSNR評価結果。}}{37}{figure.4.18}\protected@file@percent }
+\newlabel{fig:pix2pix_graph}{{4.18}{37}{テストデータ(波長1550nm,1551nm,1552nm)に対するPSNR評価結果。}{figure.4.18}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.19}{\ignorespaces テストデータ(波長1550nm,1551nm,1552nm)に対するLPIPS評価結果。}}{38}{figure.4.19}\protected@file@percent }
+\newlabel{fig:pix2pix_graph_lpips}{{4.19}{38}{テストデータ(波長1550nm,1551nm,1552nm)に対するLPIPS評価結果。}{figure.4.19}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.20}{\ignorespaces テストデータ(波長1550nm,1551nm,1552nm)に対するPSNR評価結果(入力に強度分布画像無し)。}}{38}{figure.4.20}\protected@file@percent }
+\newlabel{fig:pix2pix_graph2}{{4.20}{38}{テストデータ(波長1550nm,1551nm,1552nm)に対するPSNR評価結果(入力に強度分布画像無し)。}{figure.4.20}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.3.5}未知のデバイス構造に対する汎用性検証：LPIPSによる評価}{38}{subsection.4.3.5}\protected@file@percent }
 \newlabel{sec:unseen_geometry}{{4.3.5}{38}{未知のデバイス構造に対する汎用性検証：LPIPSによる評価}{subsection.4.3.5}{}}
-\@writefile{toc}{\contentsline {paragraph}{検証条件}{38}{section*.28}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{結果}{38}{section*.29}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {4.19}{\ignorespaces 未知の構造における電磁界分布画像の再構成結果。}}{39}{figure.4.19}\protected@file@percent }
-\newlabel{fig:unseen_inference}{{4.19}{39}{未知の構造における電磁界分布画像の再構成結果。}{figure.4.19}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.20}{\ignorespaces 未知の構造における再構成電磁界分布画像に対するLPIPS評価結果。}}{39}{figure.4.20}\protected@file@percent }
-\newlabel{fig:lpips_graph}{{4.20}{39}{未知の構造における再構成電磁界分布画像に対するLPIPS評価結果。}{figure.4.20}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {4.4}まとめ}{40}{section.4.4}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {4.21}{\ignorespaces テストデータ(波長1550nm,1551nm,1552nm)に対するLPIPS評価結果(入力に強度分布画像無し)。}}{39}{figure.4.21}\protected@file@percent }
+\newlabel{fig:pix2pix_graph2_lpips}{{4.21}{39}{テストデータ(波長1550nm,1551nm,1552nm)に対するLPIPS評価結果(入力に強度分布画像無し)。}{figure.4.21}{}}
+\@writefile{toc}{\contentsline {paragraph}{検証条件}{39}{section*.28}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{結果}{39}{section*.29}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {4.22}{\ignorespaces 未知の構造における電磁界分布画像の再構成結果。}}{40}{figure.4.22}\protected@file@percent }
+\newlabel{fig:unseen_inference}{{4.22}{40}{未知の構造における電磁界分布画像の再構成結果。}{figure.4.22}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.23}{\ignorespaces 未知の構造における再構成電磁界分布画像に対するPSNR評価結果。}}{40}{figure.4.23}\protected@file@percent }
+\newlabel{fig:psnr_graph}{{4.23}{40}{未知の構造における再構成電磁界分布画像に対するPSNR評価結果。}{figure.4.23}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.24}{\ignorespaces 未知の構造における再構成電磁界分布画像に対するLPIPS評価結果。}}{41}{figure.4.24}\protected@file@percent }
+\newlabel{fig:lpips_graph}{{4.24}{41}{未知の構造における再構成電磁界分布画像に対するLPIPS評価結果。}{figure.4.24}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.4}まとめ}{41}{section.4.4}\protected@file@percent }
 \@setckpt{chapters/mutual_conversion_f}{
-\setcounter{page}{41}
+\setcounter{page}{42}
 \setcounter{equation}{3}
 \setcounter{enumi}{2}
 \setcounter{enumii}{0}
@@ -83,7 +91,7 @@
 \setcounter{subsubsection}{0}
 \setcounter{paragraph}{0}
 \setcounter{subparagraph}{0}
-\setcounter{figure}{20}
+\setcounter{figure}{24}
 \setcounter{table}{0}
 \setcounter{parentequation}{0}
 \setcounter{section@level}{1}

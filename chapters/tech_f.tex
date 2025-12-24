@@ -37,9 +37,13 @@ FDTD法では、Yee格子と呼ばれるスタガード格子を用い、
 電界と磁界を空間的・時間的に半ステップずらして配置することで計算を行う。
 空間および時間の一階微分を中央差分で近似することにより、計算精度を向上させている。
 
-例として、損失のない媒質（$\sigma=0$）における $E_x$ 成分の更新式は、時間ステップ $n$ と空間座標 $(i, j, k)$ を用いて以下のように導出される。
+例として、損失のない媒質（$\sigma=0$）における $E_x$ 成分と $H_x$ 成分の更新式は、時間ステップ $n$ と空間座標 $(i, j, k)$ を用いて以下のように導出される。
 \begin{equation}
     E_x^{n+1}(i+\frac{1}{2}, j, k) = E_x^n(i+\frac{1}{2}, j, k) + \frac{\Delta t}{\varepsilon \Delta y} \left( H_z^{n+\frac{1}{2}} - H_z^{n+\frac{1}{2}} \dots \right)
+\end{equation}
+
+\begin{equation}
+    H_x^{n+\frac{1}{2}}\left(i, j+\frac{1}{2}, k+\frac{1}{2}\right) = H_x^{n-\frac{1}{2}}\left(i, j+\frac{1}{2}, k+\frac{1}{2}\right) - \frac{\Delta t}{\mu} \left[ \frac{E_z^{n}\left(i, j+1, k+\frac{1}{2}\right) - E_z^{n}\left(i, j, k+\frac{1}{2}\right)}{\Delta y} - \dots \right]
 \end{equation}
 
 本研究ではフリーソフトOpenFDTD\cite{openfdtd}を使用しシミュレーションを行った。
@@ -143,7 +147,7 @@ Pix2Pixは、一対の対応する画像データを用いて、画像間の変�
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=0.8\linewidth]{figures/pix2pix_example.png}
-  \caption{Pix2Pixの使用例(地図から衛星画像への変換)\cite{isola2017}。}
+  \caption{Pix2Pixの使用例(地図から衛星画像への変換)\cite{pix2pix_sorabatake}。}
   \label{fig:pix2pix_example}
 \end{figure}
 
