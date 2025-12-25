@@ -337,14 +337,22 @@ INPUT ./figures/color_map3_o-band.png
 INPUT ./figures/color_map3_o-band.png
 INPUT ./figures/color_map3_o-band.png
 INPUT extractbb -B cropbox -O figures/color_map3_o-band.png
-INPUT ./figures/psnr_e_i.png
-INPUT ./figures/psnr_e_i.png
-INPUT ./figures/psnr_e_i.png
-INPUT extractbb -B cropbox -O figures/psnr_e_i.png
-INPUT ./figures/lpips_e_i.png
-INPUT ./figures/lpips_e_i.png
-INPUT ./figures/lpips_e_i.png
-INPUT extractbb -B cropbox -O figures/lpips_e_i.png
+INPUT ./figures/c_c_psnr.png
+INPUT ./figures/c_c_psnr.png
+INPUT ./figures/c_c_psnr.png
+INPUT extractbb -B cropbox -O figures/c_c_psnr.png
+INPUT ./figures/c_o_psnr.png
+INPUT ./figures/c_o_psnr.png
+INPUT ./figures/c_o_psnr.png
+INPUT extractbb -B cropbox -O figures/c_o_psnr.png
+INPUT ./figures/c_c_lpips.png
+INPUT ./figures/c_c_lpips.png
+INPUT ./figures/c_c_lpips.png
+INPUT extractbb -B cropbox -O figures/c_c_lpips.png
+INPUT ./figures/c_o_lpips.png
+INPUT ./figures/c_o_lpips.png
+INPUT ./figures/c_o_lpips.png
+INPUT extractbb -B cropbox -O figures/c_o_lpips.png
 INPUT ./figures/failure_pix2pix.png
 INPUT ./figures/failure_pix2pix.png
 INPUT ./figures/failure_pix2pix.png
