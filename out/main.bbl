@@ -37,6 +37,12 @@ Y.~LeCun, L.~Bottou, Y.~Bengio, and P.~Haffner, ``Gradient-based learning applie
 \bibitem{dong2014}
 C.~Dong, C.~C. Loy, K.~He, and X.~Tang, ``Learning a deep convolutional network for image super-resolution,'' in \emph{Proceedings of the European Conference on Computer Vision (ECCV)}.\hskip 1em plus 0.5em minus 0.4em\relax Springer, 2014, pp. 184--199.
 
+\bibitem{cif_2023}
+S.~Toyota and H.~Fukuda, ``Simulation time reduction of photonic integrated circuit using super-resolution technique,'' in \emph{2023 Conf. Chitose International Forumon Science \& Technology 2023 (CIF2023)}, 2023.
+
+\bibitem{cleopr_2024}
+------, ``Application of super-resolution techniques to photonic integrated circuit design,'' in \emph{2024 Conf. Lasers Electro-Optics Pacific Rim (CLEO-PR)}, 2024, p. We1A\_4.
+
 \bibitem{isola2017}
 P.~Isola, J.-Y. Zhu, T.~Zhou, and A.~A. Efros, ``Image-to-image translation with conditional adversarial networks,'' in \emph{Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition (CVPR)}, 2017, pp. 1125--1134.
 
@@ -54,12 +60,6 @@ R.~Zhang, P.~Isola, A.~A. Efros, E.~Shechtman, and O.~Wang, ``The unreasonable e
 
 \bibitem{fiberlabs_band}
 {ファイバーラボ株式会社}, ``{光通信用波長帯（通信バンド）の波長範囲と名称},'' \url{https://www.fiberlabs.co.jp/tech-word/}, accessed: Dec. 22, 2025.
-
-\bibitem{cif_2023}
-S.~Toyota and H.~Fukuda, ``Simulation time reduction of photonic integrated circuit using super-resolution technique,'' in \emph{2023 Conf. Chitose International Forumon Science \& Technology 2023 (CIF2023)}, 2023.
-
-\bibitem{cleopr_2024}
-------, ``Application of super-resolution techniques to photonic integrated circuit design,'' in \emph{2024 Conf. Lasers Electro-Optics Pacific Rim (CLEO-PR)}, 2024, p. We1A\_4.
 
 \bibitem{general100}
 bluesky314, ``{General100 Dataset},'' \url{https://www.kaggle.com/datasets/bluesky314}, 2017, accessed: Dec. 22, 2025.

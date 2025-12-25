@@ -245,6 +245,10 @@ INPUT ./figures/pix2pix_example.png
 INPUT ./figures/pix2pix_example.png
 INPUT ./figures/pix2pix_example.png
 INPUT extractbb -B cropbox -O figures/pix2pix_example.png
+INPUT ./figures/U-Net.png
+INPUT ./figures/U-Net.png
+INPUT ./figures/U-Net.png
+INPUT extractbb -B cropbox -O figures/U-Net.png
 INPUT ./chapters/super_resolution_f.tex
 INPUT ./chapters/super_resolution_f.tex
 OUTPUT out/chapters/super_resolution_f.aux
@@ -305,10 +309,10 @@ INPUT ./figures/other_e_field.png
 INPUT ./figures/other_e_field.png
 INPUT ./figures/other_e_field.png
 INPUT extractbb -B cropbox -O figures/other_e_field.png
-INPUT ./figures/convert_cnn.png
-INPUT ./figures/convert_cnn.png
-INPUT ./figures/convert_cnn.png
-INPUT extractbb -B cropbox -O figures/convert_cnn.png
+INPUT ./figures/image_pix2pix.png
+INPUT ./figures/image_pix2pix.png
+INPUT ./figures/image_pix2pix.png
+INPUT extractbb -B cropbox -O figures/image_pix2pix.png
 INPUT ./figures/C-band_intensity.png
 INPUT ./figures/C-band_intensity.png
 INPUT ./figures/C-band_intensity.png
@@ -341,10 +345,10 @@ INPUT ./figures/lpips_e_i.png
 INPUT ./figures/lpips_e_i.png
 INPUT ./figures/lpips_e_i.png
 INPUT extractbb -B cropbox -O figures/lpips_e_i.png
-INPUT ./figures/failure_cnn.png
-INPUT ./figures/failure_cnn.png
-INPUT ./figures/failure_cnn.png
-INPUT extractbb -B cropbox -O figures/failure_cnn.png
+INPUT ./figures/failure_pix2pix.png
+INPUT ./figures/failure_pix2pix.png
+INPUT ./figures/failure_pix2pix.png
+INPUT extractbb -B cropbox -O figures/failure_pix2pix.png
 INPUT c:/texlive/2025/texmf-dist/fonts/tfm/ptex-fonts/standard/tmin10.tfm
 INPUT c:/texlive/2025/texmf-dist/fonts/tfm/ptex-fonts/standard/tmin10.tfm
 INPUT ./figures/pix2pix_samples.png
@@ -383,14 +387,6 @@ INPUT ./figures/pix2pix_graph_lpips.png
 INPUT ./figures/pix2pix_graph_lpips.png
 INPUT ./figures/pix2pix_graph_lpips.png
 INPUT extractbb -B cropbox -O figures/pix2pix_graph_lpips.png
-INPUT ./figures/pix2pix_graph2.png
-INPUT ./figures/pix2pix_graph2.png
-INPUT ./figures/pix2pix_graph2.png
-INPUT extractbb -B cropbox -O figures/pix2pix_graph2.png
-INPUT ./figures/pix2pix_graph2_lpips.png
-INPUT ./figures/pix2pix_graph2_lpips.png
-INPUT ./figures/pix2pix_graph2_lpips.png
-INPUT extractbb -B cropbox -O figures/pix2pix_graph2_lpips.png
 INPUT ./figures/unseen_inference.png
 INPUT ./figures/unseen_inference.png
 INPUT ./figures/unseen_inference.png
@@ -403,6 +399,18 @@ INPUT ./figures/lpips_graph.png
 INPUT ./figures/lpips_graph.png
 INPUT ./figures/lpips_graph.png
 INPUT extractbb -B cropbox -O figures/lpips_graph.png
+INPUT ./figures/i_e_no_intensity.png
+INPUT ./figures/i_e_no_intensity.png
+INPUT ./figures/i_e_no_intensity.png
+INPUT extractbb -B cropbox -O figures/i_e_no_intensity.png
+INPUT ./figures/pix2pix_graph2.png
+INPUT ./figures/pix2pix_graph2.png
+INPUT ./figures/pix2pix_graph2.png
+INPUT extractbb -B cropbox -O figures/pix2pix_graph2.png
+INPUT ./figures/pix2pix_graph2_lpips.png
+INPUT ./figures/pix2pix_graph2_lpips.png
+INPUT ./figures/pix2pix_graph2_lpips.png
+INPUT extractbb -B cropbox -O figures/pix2pix_graph2_lpips.png
 INPUT ./chapters/conclusion_f.tex
 INPUT ./chapters/conclusion_f.tex
 OUTPUT out/chapters/conclusion_f.aux

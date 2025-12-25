@@ -46,7 +46,7 @@ FDTD法では、Yee格子と呼ばれるスタガード格子を用い、
     H_x^{n+\frac{1}{2}}\left(i, j+\frac{1}{2}, k+\frac{1}{2}\right) = H_x^{n-\frac{1}{2}}\left(i, j+\frac{1}{2}, k+\frac{1}{2}\right) - \frac{\Delta t}{\mu} \left[ \frac{E_z^{n}\left(i, j+1, k+\frac{1}{2}\right) - E_z^{n}\left(i, j, k+\frac{1}{2}\right)}{\Delta y} - \dots \right]
 \end{equation}
 
-本研究ではフリーソフトOpenFDTD\cite{openfdtd}を使用しシミュレーションを行った。
+本研究ではオープンソースソフトウェアOpenFDTD\cite{openfdtd}を使用しシミュレーションを行った。
 
 \section{Multi-Mode Interferometer (MMI)}
 \label{sec:mmi}
@@ -87,7 +87,8 @@ MMIの出力における位相バランスや分岐比は、素子の幾何学�
 \begin{equation}
     S(i, j) = (I * K)(i, j) = \sum_{m} \sum_{n} I(i+m, j+n) K(m, n)
 \end{equation}
-ここで生成される $S(i, j)$ は特徴マップと呼ばれる。
+ここで、$S(i, j)$ は出力される特徴マップの座標 $(i, j)$ における値を表し、
+$m$ および $n$ はカーネル $K$ 内の要素を指定する垂直方向および水平方向のインデックスである。
 カーネル内の重みは学習を通じて最適化され、初期の層ではエッジや色などの単純な特徴を、
 深い層ではそれらを組み合わせた複雑なパターンを抽出する。
 
@@ -121,7 +122,7 @@ MMIの出力における位相バランスや分岐比は、素子の幾何学�
 SRCNN (Super-Resolution CNN) \cite{dong2014}は、
 低解像度画像から高解像度画像への非線形なマッピングを学習することで、
 従来の補間手法（バイキュービック法など）よりも鮮明な画像を再構成することを可能にした。
-本研究でもこの考え方を応用し、計算コストの削減を図る。
+本研究でもこの考え方を応用し、計算コストの削減を図る\cite{cif_2023}\cite{cleopr_2024}。
 
 \section{画像相互変換技術}
 \label{sec:image_conversion}
@@ -151,16 +152,23 @@ Pix2Pixは、一対の対応する画像データを用いて、画像間の変�
   \label{fig:pix2pix_example}
 \end{figure}
 
-本研究では、この画像変換能力を応用し、強度分布画像から電磁界分布を再構成するタスクに適用する。
+本研究では、この画像変換能力を応用し、強度分布画像と電磁界分布を相互に変換するタスクに適用する。
 
 \subsection{ネットワークの構成：U-NetとPatchGAN}
 Pix2Pixは、生成器(Generator)と識別器(Discriminator)の2つのネットワークで構成される。
 
 \subsubsection{生成器: U-Net構造}
-生成器には、エンコーダ・デコーダ構造を持つU-Netが用いられる。
+生成器には、エンコーダ・デコーダ構造を持つU-Net(\ref{fig:U-Net})が用いられる。
 U-Netの特徴は、エンコーダの各層とデコーダの対応する層を直接結ぶスキップ接続である。
 これにより、エンコーダで抽出された低次の詳細な空間情報が圧縮によって失われるのを防ぎ、
 高精度な画像の生成を可能にしている。
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.8\linewidth]{figures/U-Net.png}
+  \caption{U-Netの構造を示した図。}
+  \label{fig:U-Net}
+\end{figure}
 
 \subsubsection{識別器: PatchGAN}
 識別器には、画像を小さなパッチ単位で判定するPatchGANが採用されている。
@@ -169,7 +177,7 @@ U-Netの特徴は、エンコーダの各層とデコーダの対応する層を
 
 \subsection{学習の目的関数}
 Pix2Pixは、識別器を欺くように学習する敵対的損失 $\mathcal{L}_{cGAN}$と、
-生成画像が正解画像から画素レベルで乖離しないように制約するL1損失を組み合わせて学習を行う。
+生成画像が正解画像から画素レベルで乖離しないように制約する$\mathcal{L}_{L1}$損失を組み合わせて学習を行う。
 \begin{equation}
     G^* = \arg \min_G \max_D \mathcal{L}_{cGAN}(G, D) + \lambda \mathcal{L}_{L1}(G)
 \end{equation}
@@ -191,11 +199,11 @@ $m \times n$画素の正解画像$I$と生成画像$K$において、
 \begin{equation}
     PSNR = 10 \cdot \log_{10}\left(\frac{MAX_{I}^{2}}{MSE}\right) = 20 \cdot \log_{10}\left(\frac{MAX_{I}}{\sqrt{MSE}}\right)
 \end{equation}
-一般的に、PSNRが30 dB以上であれば、視覚的に劣化が気にならない高品質な画像であるとされる。\cite{huynh2008scope}
+一般的に、PSNRが30 dB以上であれば、視覚的に劣化が問題にならない高品質な画像であるとされる。\cite{huynh2008scope}
 
 \subsection{LPIPS}
 \label{sec:lpips}
-LPIPS(Learned Perceptual Image Patch Similarity)は、深層学習モデル(VGGやAlexNetなど)の内部層から抽出された特徴マップ間の距離として画像間の類似度を定義する指標である\cite{lpips_zhang}。
+LPIPS(Learned Perceptual Image Patch Similarity)は、深層学習モデル(VGGやAlexNetなど)の内部層から抽出された特徴マップ間の距離として画像間の類似度を評価する指標である\cite{lpips_zhang}。
 従来のPSNRは全画素の輝度値誤差を平均するため、画像のコントラストや全体的な明るさが僅かに変化しただけでスコアが極端に悪化する傾向がある。
 一方、LPIPSは画像の構造的な特徴やパターンを重視するため、人間が直感的に似ていると感じる度合いをより正確に数値化できる。
 
@@ -206,7 +214,7 @@ LPIPSは、値が小さいほど正解に近いことを意味する。
     \item \textbf{0.1 以下}: 人間の目で見ても区別が困難なほど、構造やパターンの再現性が極めて高い
     \item \textbf{0.3 以上}: 知覚的に明らかな構造の崩れや、物理的特徴の欠落が見られる
 \end{itemize}
-物理現象である電磁界分布の再構成においては、輝度の絶対値よりも干渉縞の位置や形状が重要であるため、
+低解像度の電磁界分布画像の超解像、電磁界分布の再構成においては、輝度の絶対値よりも干渉縞の位置や形状が重要であるため、
 特定の検証フェーズにおいてはLPIPSによる評価が極めて有効である。
 
 
@@ -214,16 +222,15 @@ LPIPSは、値が小さいほど正解に近いことを意味する。
 \label{sec:wavelength_bands}
 本研究では、提案手法の汎用性を検証するために、CバンドおよびOバンドという2つの代表的な波長帯域を用いている。
 光通信において、これらの波長帯は光ファイバの伝送損失や分散特性に基づいて定義されており、
-PICの設計においても極めて重要である。
+PICの設計で主に用いられる波長帯である。
 
 \subsection{Oバンド(Original Band)}
 Oバンドは、波長 1260 nm から 1360 nm の範囲を指す。
-この帯域は、石英光ファイバにおいて材料分散と構造分散が打ち消し合う零分散波長近傍に位置しており、長距離伝送における信号波形の歪みが小さいという特徴を持つ。
+この帯域は、石英光ファイバにおいて材料分散と構造分散が打ち消し合う零分散波長近傍に位置している。
 シリコンフォトニクスデバイスにおいては、シリコン導波路の透明波長領域に含まれるため、
 短距離・高速通信(データセンター内通信など)をターゲットとしたPIC設計で広く利用されている\cite{rp_photonics}\cite{fiberlabs_band}。
 
 \subsection{Cバンド(Conventional Band)}
 Cバンドは、波長 1530 nm から 1565 nm の範囲を指す。
 この帯域は石英光ファイバの伝送損失が最も低くなる帯域であり、
-光増幅器(EDFA)の増幅帯域とも一致するため、基幹網や長距離通信、
-波長分割多重(WDM)通信において最も標準的に利用されている\cite{rp_photonics}\cite{fiberlabs_band}。
+基幹網や長距離通信、波長分割多重(WDM)通信において最も標準的に利用されている\cite{rp_photonics}\cite{fiberlabs_band}。

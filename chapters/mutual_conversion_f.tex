@@ -5,7 +5,7 @@
 PICの設計プロセスにおいて、
 電磁界シミュレーションはデバイス特性を予測するために不可欠である。
 通常、設計者はシミュレーションを通じて位相差、分岐比などの値を確認する。
-しかし、これらの値を算出するための元データとなる詳細な3次元電磁界分布データ($E_x, E_y, E_z, H_x, H_y, H_z$の6成分）
+しかし、これらの値を算出するための元データとなる詳細な3次元電磁界分布データ($E_x, E_y, E_z, H_x, H_y, H_z$の6成分)
 は、データ容量が極めて大きいため、ストレージ容量の制約から、
 設計パラメータが確定した後には破棄されることが一般的である。
 
@@ -25,10 +25,36 @@ PICの設計プロセスにおいて、
 まず、第一段階として、情報量の多い電磁界分布画像から、
 情報量の少ない強度分布画像を再構成する手法について述べる。
 電磁界分布画像には位相情報が含まれているため、強度への変換は比較的容易であると予想される。
-本研究では、この変換プロセスにCNNを適用し、
-その有効性についてCIF 2025にて報告した内容に基づき詳述する\cite{cif_2025}。
+本研究では、この変換プロセスにPix2Pixを適用した。
+
+\subsection{Pix2Pixによる画像変換の原理}
+\label{sec:pix2pix_theory}
+Pix2Pixは、cGANを用いた画像変換フレームワークである。
+
+\subsubsection*{cGANの目的関数}
+cGANでは、入力画像 $x$(ここでは強度分布画像)を条件として、
+偽の画像を生成する生成器 $G$ と、入力 $x$ とターゲット $y$ のペアが本物か偽物かを判定する
+識別器 $D$ が対抗的に学習を行う。
+その目的関数 $\mathcal{L}_{cGAN}(G, D)$ は次式で表される。
+\begin{equation}
+    \mathcal{L}_{cGAN}(G, D) = \mathbb{E}_{x,y} [\log D(x, y)] + \mathbb{E}_{x,z} [\log(1 - D(x, G(x, z)))]
+\end{equation}
+ここで $z$ はノイズである。Pix2Pixの特徴は、
+この敵対的損失に加え、生成画像が正解画像から大きく
+乖離することを防ぐための $mathcal{L}_{L1}$ 損失を導入している点にある。
+\begin{equation}
+    \mathcal{L}_{L1}(G) = \mathbb{E}_{x,y,z} [\| y - G(x, z) \|_1]
+\end{equation}
+最終的な学習目標は、これらを組み合わせた次式の最適化となる。
+\begin{equation}
+    G^* = \arg \min_G \max_D \mathcal{L}_{cGAN}(G, D) + \lambda \mathcal{L}_{L1}(G)
+\end{equation}
+敵対的損失が高周波成分を、$mathcal{L}_{L1}$ 損失が低周波成分を担うことで、
+物理的に整合性の取れた鮮明な電磁界分布の復元が可能となる。
+
 
 \subsection{研究手順}
+\label{sec:pix2pix_e_i}
 
 \subsubsection*{シミュレーションデバイスとデータセットの生成}
 学習データおよびテストデータを生成するために、シミュレーションを行った。
@@ -48,8 +74,7 @@ PICの設計プロセスにおいて、
   \label{fig:device_structure2}
 \end{figure}
 
-本研究の目的は干渉パターンの変換則を学習することにあるため、データセットの生成においては、
-2$\times $2MMIの干渉計の箇所のみを画像として切り出して使用した(図\ref{fig:electro_and_intensity})。
+本研究の目的で使用する電磁界分布画像と強度分布画像の例を図\ref{fig:electro_and_intensity}に示す。
 
 \subsubsection*{可視化カラーマップの多様性}
 設計現場において蓄積される画像資産は、
@@ -65,7 +90,7 @@ PICの設計プロセスにおいて、
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=0.8\linewidth]{figures/electro_and_intensity.png}
-  \caption{電磁界分布画像と強度分布画像は干渉計の箇所を切り出して使用する。}
+  \caption{電磁界分布画像と強度分布画像の例。}
   \label{fig:electro_and_intensity}
 \end{figure}
 
@@ -76,61 +101,60 @@ PICの設計プロセスにおいて、
   \label{fig:other_e_field}
 \end{figure}
 
-\subsubsection*{CNNモデルの学習}
-電磁界分布画像を入力とし、強度分布画像を出力とするCNNモデルを構築した。
+\subsubsection*{Pix2Pixモデルの学習}
+電磁界分布画像を入力とし、強度分布画像を出力とするPix2Pixモデルを構築した。
 
 \paragraph{データセットの構築}
-生成された電磁界分布画像とそれに対応する強度分布画像のペアに対し、前処理を行った。
-それぞれの画像を20個のセグメントに分割し、これらのペアをそれぞれの
-カラーマップごとに学習データとして使用した(図\ref{fig:convert_cnn})。
+波長1530nmから波長1549nmまでの範囲で1nm刻みでシミュレーションを行い、
+20組の電磁界分布画像と強度分布画像のペアを取得した。
+これらのペアをそれぞれのカラーマップごとに学習データとして使用した(図\ref{fig:image_pix2pix})。
 
 \begin{figure}[htbp]
   \centering
-  \includegraphics[width=0.8\linewidth]{figures/convert_cnn.png}
-  \caption{CNNの学習に使用したデータセット。}
-  \label{fig:convert_cnn}
+  \includegraphics[width=0.8\linewidth]{figures/image_pix2pix.png}
+  \caption{Pix2Pix学習のイメージ。}
+  \label{fig:image_pix2pix}
 \end{figure}
 
-\paragraph{ネットワーク構造}
-モデル構造として、3層の畳み込み層からなるCNNを採用した。
-ネットワークの具体的な構成および学習に使用したハイパーパラメータは以下の通りである。
+\paragraph{Pix2Pixモデルの構築}
+本研究では、U-NetベースのGeneratorと、PatchGANベースのDiscriminatorを構築した。
+各ネットワークの詳細は以下の通りである。
 学習には、Cバンドのシミュレーションで得られた画像ペアのみを使用した。
 
+\subsubsection*{Generatorの構成}
 \begin{itemize}
-    \item \textbf{第1層}:
+    \item \textbf{構造}: U-Net(エンコーダ・デコーダ構造)
+    \item \textbf{入力層}:
     \begin{itemize}
-        \item 入力チャンネル数: 3
-        \item 出力チャンネル数（フィルタ数）: 64
-        \item カーネルサイズ: $3 \times 3$
-        \item パディング: 1
-        \item 活性化関数: ReLU
+        \item 電磁界分布画像
     \end{itemize}
-    
-    \item \textbf{第2層}:
-    \begin{itemize}
-        \item 入力チャンネル数: 64
-        \item 出力チャンネル数（フィルタ数）: 64
-        \item カーネルサイズ: $3 \times 3$
-        \item パディング: 1
-        \item 活性化関数: ReLU
-    \end{itemize}
-    
-    \item \textbf{第3層}:
-    \begin{itemize}
-        \item 入力チャンネル数: 64
-        \item 出力チャンネル数（フィルタ数）: 3
-        \item カーネルサイズ: $3 \times 3$
-        \item パディング: 1
-    \end{itemize}
+    \item \textbf{ダウンサンプリング層}: 7層
+    \item \textbf{正規化・ドロップアウト}: InstanceNormalizationを採用。中間層においてDropout (0.5) を適用し過学習を抑制。
+\end{itemize}
 
-    \item \textbf{学習パラメータ}:
+\subsubsection*{Discriminatorの構成}
+\begin{itemize}
+    \item \textbf{構造}: 70x70 PatchGAN
+    \item \textbf{入力層}: 
     \begin{itemize}
-        \item 最適化手法: Adam
-        \item 損失関数: 平均二乗誤差 (MSE)
-        \item 学習率: $1 \times 10^{-4}$
-        \item エポック数: 5000
-        \item バッチサイズ: 4
+        \item Generatorへの入力
+        \item 生成画像または正解画像
     \end{itemize}
+\end{itemize}
+
+\subsubsection*{学習条件の詳細}
+モデルの学習に使用したハイパーパラメータおよび条件は以下の通りである。
+
+\begin{itemize}
+    \item \textbf{最適化手法}: Adam ($\beta_1=0.5, \beta_2=0.999$)
+    \item \textbf{学習率}: $2 \times 10^{-4}$
+    \item \textbf{損失関数}: 
+    \begin{itemize}
+        \item 敵対的損失 (GAN Loss)
+        \item L1損失 ($\lambda_{L1}=100.0$)
+    \end{itemize}
+    \item \textbf{エポック数}: 100
+    \item \textbf{バッチサイズ}: 4
 \end{itemize}
 
 \subsubsection{検証手順}
@@ -138,8 +162,8 @@ PICの設計プロセスにおいて、
 学習完了後のモデルを用いて以下の2通りを推論した。
 
 \begin{enumerate}
-    \item \textbf{Cバンド推論}: 学習データと同じCバンドの電磁界分布画像を入力とする。モデルが学習データを適切に学習できたかを確認するものである。
-    \item \textbf{Oバンド推論}: 学習データには含まれないOバンドの電磁界分布画像を入力とする。学習時とは異なる波長に対してもモデルが適用可能かを検証するものである。
+    \item \textbf{Cバンド推論}: 学習データと同じCバンドの電磁界分布画像を入力とする。本研究では波長1560nmでの電磁界分布画像を使用した。モデルによる学習の正当性を確認するものである。
+    \item \textbf{Oバンド推論}: 学習データには含まれないOバンドの電磁界分布画像を入力とする。学習時とは異なる波長への適用可能性を検証するものである。
 \end{enumerate}
 
 \subsection{結果}
@@ -159,66 +183,65 @@ PICの設計プロセスにおいて、
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=0.8\linewidth]{figures/C-band_intensity.png}
-  \caption{CNNによるCバンド強度分布画像の再構成結果(カラーマップ1)。}
+  \caption{Pix2PixによるCバンド強度分布画像の再構成結果(カラーマップ1)。}
   \label{fig:C-band_intensity}
 \end{figure}
 
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=0.8\linewidth]{figures/color_map2_c-band.png}
-  \caption{CNNによるCバンド強度分布画像の再構成結果(カラーマップ2)。}
+  \caption{Pix2PixによるCバンド強度分布画像の再構成結果(カラーマップ2)。}
   \label{fig:color_map2_c-band}
 \end{figure}
 
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=0.8\linewidth]{figures/color_map3_c-band.png}
-  \caption{CNNによるCバンド強度分布画像の再構成結果(カラーマップ3)。}
+  \caption{Pix2PixによるCバンド強度分布画像の再構成結果(カラーマップ3)。}
   \label{fig:color_map3_c-band}
 \end{figure}
 
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=0.8\linewidth]{figures/O-band_intensity.png}
-  \caption{CNNによるOバンド強度分布画像の再構成結果(カラーマップ1)。}
+  \caption{Pix2PixによるOバンド強度分布画像の再構成結果(カラーマップ1)。}
   \label{fig:O-band_intensity}
 \end{figure}
 
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=0.8\linewidth]{figures/color_map2_o-band.png}
-  \caption{CNNによるOバンド強度分布画像の再構成結果(カラーマップ2)。}
+  \caption{Pix2PixによるOバンド強度分布画像の再構成結果(カラーマップ2)。}
   \label{fig:color_map2_o-band}
 \end{figure}
 
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=0.8\linewidth]{figures/color_map3_o-band.png}
-  \caption{CNNによるOバンド強度分布画像の再構成結果(カラーマップ3)。}
+  \caption{Pix2PixによるOバンド強度分布画像の再構成結果(カラーマップ3)。}
   \label{fig:color_map3_o-band}
 \end{figure}
 
-\subsubsection*{定量評価 (PSNR)}
+\subsubsection*{定量評価}
 再構成精度の定量的な評価として、PSNRおよびLPIPSを算出した。結果を図\ref{fig:psnr_e_i}、図\ref{fig:lpips_e_i}に示す。
 
 Cバンドでの推論結果は30 dBを超える高い値を示し、
-Oバンドでの推論結果においても約30 dBという値を達成した。
+Oバンドでの推論結果においても約30 dBという値を達成した\cite{cif_2025}。
 
-一方で、LPIPSの数値は約0.3弱を記録した。
-この要因として、強度分布画像においてピークが
-集中する領域でのわずかなコントラストの変化等が、
-LPIPSが重視する知覚的な特徴に敏感に反映されたためと考えられる。
+LPIPSの数値はCバンドでの推論では0.1を大きく下回り、
+Oバンドの推論では0.1に近い値を記録した。
 
-しかし、視覚的な比較結果からも明らかな通り、
+
+視覚的な比較結果からも明らかな通り、
 干渉パターンの全体像やピークの位置、
 導波路内での閉じ込めといった設計資産として再利用する上で
-必要な物理的特徴は捉えられている。
-PSNRに関しては良好であることから、この結果は、ある波長帯域で構築した変換モデルが、
+必要な物理的特徴を捉えられている。
+PSNR、LPIPSが良好であることから、この結果は、ある波長帯域で構築した変換モデルが、
 設計変更によって波長が変わったとしても、
 再学習なしで一定の精度で適用可能であることを示している。
 
-異なるカラーマップを用いて可視化された電磁界画像に対するPSNR評価の結果、
-いずれのカラーマップにおいてもPSNR 30 dB程度の高精度な再構成が可能であることを
+異なるカラーマップを用いて可視化された電磁界画像に対するPSNR、LPIPS評価の結果、
+いずれのカラーマップにおいてもPSNR 30 dB程度、LPIPS 0.1程度の高精度な再構成が可能であることを
 確認した。異なる色の割り当て規則を持つ入力に対しても、
 適切な学習ペアを与えることで、モデルは色情報を解釈し、
 強度分布へと再構成できることが実証された。
@@ -235,7 +258,7 @@ PSNRに関しては良好であることから、この結果は、ある波長�
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=0.8\linewidth]{figures/lpips_e_i.png}
-  \caption{再構成された強度分布画像のLPIPS評価結果。}
+  \caption{再構成された強度分布画像のLPIPS評価結果。Cバンド(学習済み)では0.1を大きく下回り、Oバンド(未学習)でも0.1に近い値を示している。}
   \label{fig:lpips_e_i}
 \end{figure}
 
@@ -248,46 +271,20 @@ PSNRに関しては良好であることから、この結果は、ある波長�
 「電磁界$\to$強度」の変換と比較して、「強度$\to$電磁界」の変換は格段に難易度が高い。
 これは、強度分布画像になった時点で位相情報が欠落しているためである。
 
-本研究ではまず、前節で用いた標準的なCNN構造を用いて強度から電磁界への逆変換を試行した。
-しかし、図\ref{fig:failure_cnn}に示すように、生成された画像は全体的に不鮮明で、
+本研究ではまず、前節で用いた標準的なPix2Pix構造を用いて強度から電磁界への逆変換を試行した。
+しかし、図\ref{fig:failure_pix2pix}に示すように、生成された画像は全体的に不鮮明で、
 電磁界分布において物理的に重要である鮮明な干渉縞が消失するという結果となった。
-これは、MSEを損失関数とした学習において、不確定な位相の候補が平均化されることで、
-高周波成分である縞模様が平滑化されてしまうCNNの限界を示している。
-この課題を克服するため、本研究では生成対抗ネットワーク(GAN)の一種であるPix2Pixを採用する。
+この課題を克服するため、本研究では入力画像、ラベル情報の追加を採用する。
 
 \begin{figure}[htbp]
   \centering
-  \includegraphics[width=0.8\linewidth]{figures/failure_cnn.png}
-  \caption{CNNによる電磁場画像の再構成失敗例。}
-  \label{fig:failure_cnn}
+  \includegraphics[width=0.8\linewidth]{figures/failure_pix2pix.png}
+  \caption{電磁場画像の再構成失敗例。}
+  \label{fig:failure_pix2pix}
 \end{figure}
 
-\subsection{Pix2Pixによる画像変換の原理}
-\label{sec:pix2pix_theory}
-Pix2Pixは、cGANを用いた画像変換フレームワークである。
-
-\subsubsection*{cGANの目的関数}
-cGANでは、入力画像 $x$(ここでは強度分布画像)を条件として、
-偽の画像を生成する生成器 $G$ と、入力 $x$ とターゲット $y$ のペアが本物か偽物かを判定する
-識別器 $D$ が対抗的に学習を行う。
-その目的関数 $\mathcal{L}_{cGAN}(G, D)$ は次式で表される。
-\begin{equation}
-    \mathcal{L}_{cGAN}(G, D) = \mathbb{E}_{x,y} [\log D(x, y)] + \mathbb{E}_{x,z} [\log(1 - D(x, G(x, z)))]
-\end{equation}
-ここで $z$ はノイズである。Pix2Pixの特徴は、
-この敵対的損失に加え、生成画像が正解画像から大きく
-乖離することを防ぐための $L1$ 損失を導入している点にある。
-\begin{equation}
-    \mathcal{L}_{L1}(G) = \mathbb{E}_{x,y,z} [\| y - G(x, z) \|_1]
-\end{equation}
-最終的な学習目標は、これらを組み合わせた次式の最適化となる。
-\begin{equation}
-    G^* = \arg \min_G \max_D \mathcal{L}_{cGAN}(G, D) + \lambda \mathcal{L}_{L1}(G)
-\end{equation}
-敵対的損失が高周波成分を、L1損失が低周波成分を担うことで、
-物理的に整合性の取れた鮮明な電磁界分布の復元が可能となる。
-
 \subsection{研究手順}
+\label{sec:pix2pix_i_e}
 
 \subsubsection*{データセットの生成と構造バリエーション}
 本タスクでは、デバイス構造、波長、励振点の組み合わせに
@@ -295,8 +292,8 @@ cGANでは、入力画像 $x$(ここでは強度分布画像)を条件として�
 学習に用いる各データには、物理条件を識別するための「ラベル情報」を付与した。
 なお、本解析では、学習の効率化を目的として、
 すべての電磁界分布画像、強度分布画像、をグレースケールとして処理した。
-赤と青のカラーマップによる可視化は視覚的には理解しやすいが、
-物理的な本質は振幅の正負や強度であり、グレースケールのみで物理現象の表現として十分である。
+\ref{sec:field_to_intensity}の結果、
+任意のカラーマップに対して変換を行えることを検証できたためである。
 
 \begin{itemize}
     \item \textbf{構造バリエーション（CADパターン）}:
@@ -308,22 +305,18 @@ cGANでは、入力画像 $x$(ここでは強度分布画像)を条件として�
     \item \textbf{波長割り当てルール（ラベル1）}:
     全帯域 $1530\text{--}1565\,\text{nm}$ において、以下の規則に従い波長を各構造に割り当て、これを入力ラベルとしてネットワークに与えた。
     \begin{itemize}
-        \item $\lambda = 1530, 1533, 1536, \dots\,\text{nm}$ （パターン1に適用）
-        \item $\lambda = 1531, 1534, 1537, \dots\,\text{nm}$ （パターン2に適用）
-        \item $\lambda = 1532, 1535, 1538, \dots\,\text{nm}$ （パターン3に適用）
+        \item $\lambda = 1530, 1533, 1536, \dots\,1563\text{nm}$ （パターン1に適用）
+        \item $\lambda = 1531, 1534, 1537, \dots\,1564\text{nm}$ （パターン2に適用）
+        \item $\lambda = 1532, 1535, 1538, \dots\,1565\text{nm}$ （パターン3に適用）
     \end{itemize}
     \item \textbf{励振位置の設定（ラベル2）}:
-    入力導波路の左端からの距離として、$1\,\mu\text{m}, 4\,\mu\text{m}, 7\,\mu\text{m}$ の3パターンの励振点を設定し、これも入力ラベルとした。
+    入力導波路の左端からの距離として、$1\,\text{m}, 4\,\text{m}, 7\,\mu\text{m}$ の3パターンの励振点を設定し、これも入力ラベルとした。
 \end{itemize}
 
 本手法では、入力として強度分布画像に加え、コア・クラッドの境目を明示したCAD画像を同時に入力することで、
 モデルが構造境界を認識し、適切な位相分布を再構成できるようにしている。
-さらに、波長および励振点の数値を全画素に一定値として
-割り当てた2チャンネルのマップとして入力する。
+さらに、波長および励振点の数値を全画素に一定値として割り当て、入力する。
 これにより、強度の流れだけでは決定できない位相をモデルに推論させる。
-また、提案手法の妥当性を検証するため、
-入力の強度分布画像を除外し、CAD画像とラベルのみから
-電磁界分布を推論する比較実験を行った。
 
 モデルの汎用性を検証するため、
 1550nm,1551nm,1552nmの3つのデータについては学習から除外し、
@@ -341,17 +334,17 @@ cGANでは、入力画像 $x$(ここでは強度分布画像)を条件として�
 \end{figure}
 
 \subsubsection*{Pix2Pixモデルの構築}
-本研究では、U-NetベースのGeneratorと、PatchGANベースのDiscriminatorを構築した。各ネットワークの詳細は以下の通りである。
+\ref{sec:pix2pix_e_i}と同様に、U-NetベースのGeneratorと、PatchGANベースのDiscriminatorを構築した。各ネットワークの詳細は以下の通りである。
 
 \paragraph{Generatorの構成}
 \begin{itemize}
     \item \textbf{構造}: U-Net(エンコーダ・デコーダ構造)
-    \item \textbf{入力層}: 8チャンネル
+    \item \textbf{入力層}: 
     \begin{itemize}
-        \item 強度分布画像(3ch)
-        \item CAD構造画像(3ch)：コアとクラッドの境界情報の保持
-        \item 波長ラベル(1ch)：全画素に正規化した波長値を割り当てたマップ
-        \item 励振位置ラベル(1ch)：全画素に正規化した励振位置を割り当てたマップ
+        \item 強度分布画像
+        \item CAD構造画像：コアとクラッドの境界情報の保持
+        \item 波長ラベル：全画素に正規化した波長値を割り当てたマップ
+        \item 励振位置ラベル：全画素に正規化した励振位置を割り当てたマップ
     \end{itemize}
     \item \textbf{ダウンサンプリング層}: 7層
     \item \textbf{正規化・ドロップアウト}: InstanceNormalizationを採用。中間層においてDropout (0.5) を適用し過学習を抑制。
@@ -360,10 +353,10 @@ cGANでは、入力画像 $x$(ここでは強度分布画像)を条件として�
 \paragraph{Discriminatorの構成}
 \begin{itemize}
     \item \textbf{構造}: 70x70 PatchGAN
-    \item \textbf{入力層}: 11チャンネル
+    \item \textbf{入力層}:
     \begin{itemize}
-        \item Generatorへの入力(8ch)
-        \item 生成画像または正解画像(3ch)
+        \item Generatorへの入力
+        \item 生成画像または正解画像
     \end{itemize}
 \end{itemize}
 
@@ -383,7 +376,7 @@ cGANでは、入力画像 $x$(ここでは強度分布画像)を条件として�
 \end{itemize}
 
 \subsection{結果}
-強度画像を入力に含んだ場合の学習済みモデルを用いた電磁界分布画像の再構成結果を
+電磁界分布画像の再構成結果を
 図\ref{fig:pix2pix_1550nm}、図\ref{fig:pix2pix_1551nm}、図\ref{fig:pix2pix_1552nm}に示す。
 入力データである強度分布からは位相情報は読み取れないが、
 Pix2Pixによって生成された電磁界分布では、
@@ -413,21 +406,13 @@ CAD画像によってコアとクラッドの境界情報が与えられてい�
 \end{figure}
 
 定量評価として、テストデータに対するPSNR、LPIPSを
-図\ref{fig:pix2pix_graph}、図\ref{fig:pix2pix_graph2}、図\ref{fig:pix2pix_graph_lpips}、図\ref{fig:pix2pix_graph2_lpips}に示す。
-検証の結果、注目すべき点として、強度画像を入力に含まない場合であっても、
-PSNRが30 dBに達するケースが確認され、LPIPSも0.1を大きく下回る結果となった。
-これは、提案モデルが単に入力画像のピクセル値を変換しているのではなく、
-CADと波長・励振点の組み合わせから、
+図\ref{fig:pix2pix_graph}、図\ref{fig:pix2pix_graph2}に示す。
+検証の結果、PSNRが30 dBに達するケースが確認され、LPIPSも0.1を大きく下回る結果となった。
+これは、提案モデルが強度分布画像、CADと波長・励振点の組み合わせから、
 デバイス内部で発生すべき物理的な干渉パターンの型を学習できていることを意味する。
-つまり、構造情報と物理ラベルのみからでも、電磁界の分布を一定の精度で予測できる
-ポテンシャルをモデルが備えていることが示された。
-
-一方で、強度分布画像を追加することでPSNRはさらに向上し、LPIPSもさらに低下している。
-より安定して高精度な復元が可能となる。この結果は、CAD画像とラベルが
-物理的な枠組みを定義し、強度分布画像が個別の構造における具体的な電磁界の振る舞い
-を補完するという、8チャンネル入力構成の合理性を裏付けるものである。
-これは、モデルが特定の画像を記憶するのではなく、
-波長や構造と電磁界の間の物理的な対応関係を学習できていることを示唆している。
+この結果は、CAD画像とラベルが物理的な枠組みを定義し、
+強度分布画像が個別の構造における具体的な電磁界の振る舞い
+を補完するという、入力構成の合理性を裏付けるものである。
 
 \begin{figure}[htbp]
   \centering
@@ -443,23 +428,10 @@ CADと波長・励振点の組み合わせから、
   \label{fig:pix2pix_graph_lpips}
 \end{figure}
 
-\begin{figure}[htbp]
-  \centering
-  \includegraphics[width=0.8\linewidth]{figures/pix2pix_graph2.png}
-  \caption{テストデータ(波長1550nm,1551nm,1552nm)に対するPSNR評価結果(入力に強度分布画像無し)。}
-  \label{fig:pix2pix_graph2}
-\end{figure}
-
-\begin{figure}[htbp]
-  \centering
-  \includegraphics[width=0.8\linewidth]{figures/pix2pix_graph2_lpips.png}
-  \caption{テストデータ(波長1550nm,1551nm,1552nm)に対するLPIPS評価結果(入力に強度分布画像無し)。}
-  \label{fig:pix2pix_graph2_lpips}
-\end{figure}
-
-\subsection{未知のデバイス構造に対する汎用性検証：LPIPSによる評価}
+\subsection{未知のデバイス構造に対する汎用性検証}
 \label{sec:unseen_geometry}
-本章の締めくくりとして、学習データに一切含まれていなかった未知の形状を持つデバイスに対する推論実験をした。
+モデルの汎用性を確認するために、
+学習データに一切含まれていなかった形状を持つデバイスに対する推論実験をした。
 
 \paragraph{検証条件}
 対象とした構造は、干渉計が縦 $2.25\,\mu\text{m} \times$ 横 $18.5\,\mu\text{m}$ のMMIである。
@@ -470,7 +442,7 @@ CADと波長・励振点の組み合わせから、
 図\ref{fig:unseen_inference}に、正解データと推論結果の比較を示す。
 導波路境界における電磁界の閉じ込めや、多モード干渉特有の複雑な波面が鮮明に再現されていることがわかる。
 定量評価の結果を図\ref{fig:psnr_graph},図\ref{fig:lpips_graph}に示す。
-検証の結果、この未知構造に対してはPSNRが30~dBを大きく下回る結果となった。
+検証の結果、この未知構造に対してはPSNRが30 dBを大きく下回る結果となった。
 これは、未学習のデバイス寸法に起因する全体的な輝度バランスの変動や
 コントラストの変化が、画素ごとの誤差を平均化するPSNRの数値に敏感に反映されたためと考えられる。
 一方、LPIPSは0.1以下を記録しており、
@@ -499,13 +471,57 @@ CADと波長・励振点の組み合わせから、
   \label{fig:lpips_graph}
 \end{figure}
 
+\subsection{強度分布画像が無い場合の電磁界分布画像再構成の検証}
+強度分布画像が入力に無い場合の推論可能性を検証するため、強度画像を除外し、
+CAD画像とラベル情報のみから電磁界分布を推論する比較実験をした。
+構造バリエーション、、波長割り当てルール、励振点の設定、Pix2Pixモデルの構成は\ref{sec:pix2pix_i_e}と同様のものを使用した。
+強度画像を除外したときのPix2Pixの学習の様子を図\ref{fig:i_e_no_intensity}に示す。
+テストデータとして使用するのは\ref{sec:pix2pix_i_e}と同様に、1550nm,1551nm,1552nmの3つである。
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.8\linewidth]{figures/i_e_no_intensity.png}
+  \caption{強度画像無し学習の図。}
+  \label{fig:i_e_no_intensity}
+\end{figure}
+
+\subsubsection*{結果}
+図\ref{fig:pix2pix_graph2}および図\ref{fig:pix2pix_graph2_lpips}に、
+強度画像無し(CAD + ラベルのみ)の場合の評価結果を示す。
+強度画像を入力に含まない場合であっても、\ref{sec:pix2pix_e_i}の結果には及ばないものの、
+PSNRが30 dBに達するケースが確認され、LPIPSも0.1を下回る結果となった。
+これは、提案モデルが単に入力画像の画素値を変換しているのではなく、
+導波路構造(CAD)と波長・励振位置の組み合わせから、
+デバイス内の物理的な干渉パターンを学習できていることを意味する。
+つまり、モデルが簡易的な物理シミュレータとして働いており、
+強度画像がない状態でも、
+物理法則に則った妥当な分布を推論
+できるポテンシャルを備えていることが明らかとなった。
+強度画像を追加することで復元はより安定かつ高精度になるが、
+構造情報のみからの推論能力は、設計の効率化において有用な知見である。
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.8\linewidth]{figures/pix2pix_graph2.png}
+  \caption{テストデータ(波長1550nm,1551nm,1552nm)に対するPSNR評価結果(入力強度画像無し)。}
+  \label{fig:pix2pix_graph2}
+\end{figure}
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.8\linewidth]{figures/pix2pix_graph2_lpips.png}
+  \caption{テストデータ(波長1550nm,1551nm,1552nm)に対するLPIPS評価結果(入力強度画像無し)。}
+  \label{fig:pix2pix_graph2_lpips}
+\end{figure}
+
+
 \section{まとめ}
 本章では、数値シミュレーションデータの廃棄後に残存する画像資産を再利用するための画像相互変換技術について検討した。
-電磁界から強度への順変換だけでなく、困難な強度から電磁界への逆変換をPix2Pixによって実現した。
+電磁界から強度への順変換だけでなく、困難な強度から電磁界への逆変換を実現した。
 特に、CAD画像による構造境界の制約と、波長・励振点ラベルによる
 物理条件をネットワークに統合して入力する手法を提案した。
-検証の結果、強度分布から電磁界分布画像への変換はCNNによってカラーマップに依存せず実現でき、
-逆変換はPix2Pixに物理的補助情報を統合することで、PSNR 約30 dBでの復元が可能であることを実証した。
-強度分布画像がない場合でも物理則に基づいた予測が可能であるという知見が得られ、
+検証の結果、強度分布から電磁界分布画像への変換はカラーマップに依存せず実現でき、
+逆変換はPix2Pixに物理的補助情報を統合することで、PSNR 約30 dB、LPIPS 0.1を下回る復元が可能であることを実証した。
 学習時に存在しない未知のデバイス形状に対する検証においては、LPIPSにおいて極めて優れた値を記録し、モデルが物理則を高度に学習できていることが確認された。
+また、強度分布画像がない場合でも物理則に基づいた予測が可能であるという知見が得られた。
 これらにより機械学習によるPIC設計支援の新たな可能性が示された。
